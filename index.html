@@ -181,6 +181,12 @@ table.cmp th{font-size:12px;color:var(--muted);font-weight:600;border-bottom:1px
 table.cmp tr.pick td{font-weight:700;background:linear-gradient(90deg,var(--accent) 0 6px,transparent 6px);padding-left:16px}
 table.cmp tr.pick td+td{background:none;padding-left:0}
 
+.steps .ver{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 9px;margin-left:10px;vertical-align:2px}
+.steps p em{font-style:normal;font-weight:600;color:var(--fg);margin-right:8px}
+.brow.wide{grid-template-columns:120px 1fr 64px}
+.f1grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+.f1 .m{display:block;font-size:13px;font-weight:700;margin:6px 0 -2px}
+@media (max-width:640px){.f1grid{grid-template-columns:1fr}}
 /* ---------- interactive flow ---------- */
 .flow{background:var(--soft);border-radius:4px;padding:22px}
 .flow-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;margin-bottom:16px}
@@ -321,7 +327,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
     </div>
     <ul class="xp" aria-label="경험">
-      <li><span class="when">2026.08 – 12</span><h3>나무아이씨티 현장실습</h3><p>유전체 분석을 말로 요청하는 AI 도우미 개발</p></li>
+      <li><span class="when">2026.08 – 12</span><h3>나무아이씨티 현장실습</h3><p>유전체 분석 LLM 에이전트 · 파라미터 RAG · SLLM 실험</p></li>
       <li><span class="when">2025.09 – 2026.02</span><h3>K-U시티 연구 참여</h3><p>울릉군 교통 데이터 수집, 차량 통행량 자동 집계</p></li>
       <li><span class="when">2025 – 2026</span><h3>수업·캠프 TA (총 4회)</h3><p>딥러닝 수업 튜터, Agentic AI·예측 캠프 실습 지원</p></li>
       <li><span class="when">2025.03 – 06</span><h3>한동대 VIC센터</h3><p>코딩 강의 자료 제작 및 검토</p></li>
@@ -343,9 +349,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
     <div class="edu"><b>한동대학교 AI융합학부 · ICT융합 · 데이터사이언스 전공</b><span>2019.03 – 2027.02 졸업예정 (현재 수료 상태) · GPA 3.8 / 4.5</span></div>
     <div class="kit">
-      <div class="k"><h3>Skills</h3><div class="chips">
-        <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">pandas</span><span class="chip">PyTorch</span><span class="chip">LangGraph</span>
-        <span class="chip">OpenAI·Gemini API</span><span class="chip">Ollama</span><span class="chip">MLX</span><span class="chip">YOLO11</span><span class="chip">OpenCV</span></div></div>
+      <div class="k"><h3>Skills</h3><div class="chips"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">SQL</span><span class="chip">Ollama</span><span class="chip">RAG(pgvector)</span><span class="chip">LoRA/QLoRA(MLX)</span><span class="chip">YOLO11</span><span class="chip">OpenCV</span></div></div>
       <div class="k"><h3>Certificates</h3><div class="chips"><span class="chip">SQLD</span><span class="chip">ADsP</span><span class="chip">DP-900</span><span class="chip">AZ-900</span><span class="chip">컴퓨터활용능력 2급</span></div></div>
     </div>
   </div>
@@ -359,7 +363,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <a class="pc" href="#sequora">
         <div class="top"><span>01</span><span>2026.08 – 12</span></div>
         <div class="thumb"><img src="assets/img/sequora_flow.png" alt="" loading="lazy"></div>
-        <h3>SEQUORA</h3><p>현장실습 · AI 도우미 개발 · 프롬프트 개선 · 작은 모델 학습</p><span class="go">자세히 보기 →</span>
+        <h3>SEQUORA</h3><p>현장실습 · LLM 에이전트 · 평가셋 기반 개선 · 파라미터 RAG</p><span class="go">자세히 보기 →</span>
       </a>
       <a class="pc" href="#webaccess">
         <div class="top"><span>02</span><span>2025.03 – 2026.01</span></div>
@@ -377,9 +381,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <h2 id="sequora-t">SEQUORA</h2>
     <dl class="meta">
       <div><dt>구분</dt><dd>나무아이씨티 현장실습</dd></div>
-      <div><dt>역할</dt><dd>AI 기능 구현 · 성능 평가 · 모델 학습</dd></div>
+      <div><dt>역할</dt><dd>LLM 에이전트 구현 · 평가 · RAG</dd></div>
       <div><dt>언어 · 기술</dt><dd>Python · LangGraph</dd></div>
-      <div><dt>모델 · 도구</dt><dd>Ollama · MLX · Qwen3</dd></div>
+      <div><dt>모델 · 도구</dt><dd>Ollama · qwen3.5 9B · pgvector</dd></div>
     </dl>
     <div class="lead2">
       <p class="statement">연구자가 말로 요청하면 AI가 분석 조건을 정리하고, 규칙으로 검사하고, 사람이 확인하면 분석을 실행하는 도우미입니다.</p>
@@ -457,40 +461,47 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
 
     <div class="part">
-      <div class="ph"><span class="no">Part 2 · 2026.10 – 11</span><h3>프롬프트 평가·개선</h3><p>② 요청 해석 · ③ 데이터 조회 구간을 따로 떼어 점수로 검증했습니다.</p></div>
+      <div class="ph"><span class="no">Part 2</span><h3>평가셋 기반 프롬프트 개선</h3><p>지시문 24개 버전을 거치며 규칙을 더하는 방식에서 LLM과 코드가 역할을 나누는 구조로 바꿨습니다.</p></div>
       <div>
         <ol class="steps">
-          <li><div><b>1차 해석 (AI)</b><p>요청에서 분석 종류·생물종·빠진 정보와 데이터 ‘언급’만 추출. 데이터 번호는 이 단계에서 정하지 않음</p></div></li>
-          <li><div><b>데이터 조회 (코드)</b><p>언급된 이름·별칭을 카탈로그에서 조회해 실제 후보 목록 생성. 후보가 없으면 한 번 더 조회</p></div></li>
-          <li><div><b>최종 확정 (AI + 규칙)</b><p>AI는 조회된 후보 안에서만 번호 선택. 목록에 없는 번호·빈 항목은 코드로 보정</p></div></li>
+          <li><div><b>평가셋부터 만들기<span class="ver">평가 기준</span></b><p><em>한 일</em>기본 36 · 처음 보는 표현 144 · 데이터 이름·별칭 16 · 설정 16문항으로 묶음을 나누고 자동 채점기 구축</p><p><em>원칙</em>한 번에 하나만 바꾸고, 원래 답과 보정 답을 따로 기록. 점수가 떨어진 버전은 되돌림</p></div></li>
+          <li><div><b>규칙 덧붙이기<span class="ver">v1–v11</span></b><p><em>시도</em>사용자 원문을 지시가 아닌 데이터로 분리(인젝션 방어), 필드별 추출 순서와 예시 추가</p><p><em>막힌 점</em>규칙이 쌓일수록 한 필드를 고치면 다른 필드가 깨지고, 예시 문장을 외울 위험</p></div></li>
+          <li><div><b>예시 빼고 의미로 정의<span class="ver">v12–v17</span></b><p><em>시도</em>평가 문장·ID를 외우지 않도록 예시를 지우고, 필드의 역할과 판단 순서로 정의</p><p><em>막힌 점</em>데이터 번호 확정처럼 정답이 정해진 판단은 지시문만으로 오류가 줄지 않음</p></div></li>
+          <li><div><b>LLM과 코드 역할 나누기<span class="ver">v18–v24</span></b><p><em>바꾼 구조</em>LLM은 데이터 ‘언급’만 추출 → 코드가 후보 조회 → LLM은 후보 안에서 선택. 표기 정리는 코드가 맡고 지시문은 짧게 재작성</p></div></li>
         </ol>
-        <div class="items three mt">
-          <div class="it"><b>시험 문제 248개</b><p>7묶음. 정보 누락·애매한 표현·모순·오타·AI를 속이려는 문장 포함</p></div>
-          <div class="it"><b>자동 채점</b><p>항목별 정답 비교. AI 원래 답과 규칙 보정 답을 분리 기록</p></div>
-          <div class="it"><b>기록·비교</b><p>답 원문·응답 시간·사용량 기록. 지시문 버전과 모델을 같은 조건에서 비교</p></div>
-        </div>
         <div class="charts single mt">
           <figure class="chart">
-            <figcaption>처음 보는 표현 144문제 정확도</figcaption>
-            <div class="brow"><span class="lab">처음</span><div class="track" aria-hidden="true"><div class="bar" style="--v:54.9"></div></div><span class="val">54.9%</span></div>
-            <div class="brow"><span class="lab">최종</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:91.0"></div></div><span class="val">91.0%</span></div>
-            <p class="delta">+36.1%p<small>지시문 23차례 개선</small></p>
+            <figcaption>처음 보는 요청 46건 전체 정답률</figcaption>
+            <div class="brow wide"><span class="lab">지시문 개선</span><div class="track" aria-hidden="true"><div class="bar" style="--v:41"></div></div><span class="val">41%</span></div>
+            <div class="brow wide"><span class="lab">+ 파라미터 RAG</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:87"></div></div><span class="val">87%</span></div>
+            <p class="delta">41% → 87%<small>RAG는 Part 3</small></p>
           </figure>
         </div>
-        <p class="note">평균 응답 4.6초 · PC용 모델 5종 비교. 실험 환경에서 측정한 결과입니다(실제 서비스 테스트 전). 점수가 떨어진 버전은 되돌렸고, 정답이 정해진 부분은 코드로 보정했습니다.</p>
+        <p class="note">최종 모델: 로컬 모델 5종을 같은 조건으로 비교해 qwen3.5 9B 선정 · 평균 응답 4.6초</p>
       </div>
     </div>
 
     <div class="part">
-      <div class="ph"><span class="no">Part 3</span><h3>작은 모델 학습·양자화</h3><p>크기가 비슷할 때, 큰 모델을 양자화해 줄인 것과 처음부터 작은 모델 중 어느 쪽이 더 잘하는지 비교했습니다.</p></div>
+      <div class="ph"><span class="no">Part 3</span><h3>파라미터 RAG</h3><p>요청 속 설정을 파이프라인 스키마 문서에서 찾아 맞추는 기능입니다. 일반 RAG에서 시작해 검색·구조·도구 순서로 개선했습니다.</p></div>
       <div>
-        <p class="note" style="margin:0 0 8px">Qwen3 · MLX · 모든 모델 같은 LoRA 설정, 같은 시험 문제 32개 · 실습용 소규모 데이터</p>
-        <div class="items">
-          <div class="it"><b>실험 구성</b><p>4B를 2·3·4bit로 양자화 → 학습 전 기본 비교 → 원본 LoRA 그대로 붙이기 → 양자화 모델 위 QLoRA 학습 → 0.6B 원본과 비교</p></div>
-          <div class="it"><b>사전 탐색 · 학습 방식 4종 (0.6B)</b><p>QLoRA·RsLoRA·QDoRA·QPiSSA 비교. 학습 오차(loss)가 낮아도 정답이 높지는 않아 실제 과제 기준 채점으로 판단</p></div>
-          <div class="it"><b>결과 · 크기가 비슷하면 큰 차이 없음</b><p>1–2GB 구간에서 4B 양자화와 0.6B 원본의 차이는 1문제 수준. 메모리를 1/4로 줄인 4B도 원본과 같은 정답 수</p></div>
-          <div class="it"><b>앞으로 고려할 점</b><p>양자화 모델은 그 위에서 다시 학습 필요(원본용 LoRA를 그대로 붙이면 성능 붕괴). 어려운 문제는 여전히 원본이 우세. Ollama 형식과 더 많은 문제로 재확인 필요</p></div>
+        <ol class="steps">
+          <li><div><b>일반 RAG<span class="ver">출발</span></b><p>요청 전체를 벡터 하나로 검색 → 한국어 요청이나 설정이 여럿인 요청에서 일부 설정을 놓침</p></div></li>
+          <li><div><b>혼합 검색<span class="ver">검색 보강</span></b><p>문장 조각화 · 다국어 임베딩(bge-m3) · 키워드 검색 + RRF 결합, 절마다 상위 2개 보장</p></div></li>
+          <li><div><b>보충형 → 판정형<span class="ver">구조 변경</span></b><p>LLM 결과를 ‘제안’으로 두고 코드가 스키마 기준으로 판정, 애매하면 선택지로 질문</p></div></li>
+          <li><div><b>검색을 Tool로<span class="ver">확장</span></b><p>search_pipeline_params 도구로 만들어 필요할 때만 호출 → 설정 언급 없는 요청은 지연 약 절반</p></div></li>
+        </ol>
+        <div class="charts single mt">
+          <figure class="chart">
+            <figcaption>RAG 적용 전·후 파라미터 F1 · 설정 항목만 채점, 테스트셋 46건, 같은 코드에서 RAG 유무만 바꿔 비교</figcaption>
+            <div class="f1grid">
+              <div class="f1"><span class="m">qwen3.5 9B (최종)</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:24"></div></div><span class="val">0.24</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:95"></div></div><span class="val">0.95</span></div></div>
+              <div class="f1"><span class="m">Claude</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:34"></div></div><span class="val">0.34</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:100"></div></div><span class="val">1.00</span></div></div>
+              <div class="f1"><span class="m">4B + LoRA</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:27"></div></div><span class="val">0.27</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:46"></div></div><span class="val">0.46</span></div></div>
+              <div class="f1"><span class="m">4B + QLoRA</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:18"></div></div><span class="val">0.18</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:24"></div></div><span class="val">0.24</span></div></div>
+            </div>
+          </figure>
         </div>
+        <div class="it mt"><b>함께 한 실험 · SLLM 파인튜닝·양자화</b><p>4B + LoRA는 RAG 없이 39%로 9B(41%)와 비슷했지만, RAG를 붙여도 46%에 그쳐(9B는 87%) 9B로 전환했습니다. 테스트셋 46건 기준입니다.</p></div>
       </div>
     </div>
   </div>
