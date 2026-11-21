@@ -116,7 +116,7 @@ section{padding:120px 0}
 .edu span{color:var(--muted);font-size:14px}
 
 /* ---------- project index ---------- */
-.pindex{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.pindex{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
 @media (max-width:860px){.pindex{grid-template-columns:1fr}}
 .pc{display:flex;flex-direction:column;text-decoration:none;border-top:1.5px solid var(--fg);padding-top:16px}
 .pc .thumb{aspect-ratio:16/10;background:var(--soft);border-radius:4px;overflow:hidden;display:grid;place-items:center;margin:14px 0 18px;transition:background .2s}
@@ -238,6 +238,13 @@ table.cmp tr.pick td+td{background:none;padding-left:0}
 .oc li{margin:4px 0}
 .oc .chip{background:#fff;border-color:#fff}
 
+.oc.feature{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:start;margin-top:56px;background:var(--soft)}
+.oc.feature>*{min-width:0}
+.oc.feature .frame{padding:16px}
+.oc.feature h3{font-size:clamp(24px,2.6vw,32px)}
+.oc.feature .fd{margin:14px 0 0;font-size:15px}
+@media (max-width:960px){.oc.feature{grid-template-columns:1fr;gap:20px}}
+.others{margin-top:20px!important}
 /* ---------- cta / footer ---------- */
 .cta{background:var(--soft2);text-align:center;padding:110px 0}
 .cta .badge{margin:0 auto 26px}
@@ -321,7 +328,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section id="projects" style="padding-bottom:40px">
   <div class="wrap">
     <p class="eyebrow">Projects</p>
-    <p class="statement">주요 프로젝트 3개</p>
+    <p class="statement">주요 프로젝트 2개</p>
     <div class="pindex">
       <a class="pc" href="#sequora">
         <div class="top"><span>01</span><span>2026.08 – 12</span></div>
@@ -332,11 +339,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="top"><span>02</span><span>2025.03 – 2026.01</span></div>
         <div class="thumb"><img src="assets/img/hb_pipeline.png" alt="" loading="lazy"></div>
         <h3>시각장애인 웹 접근성 최적화</h3><p>데이터 수집 · AI 처리 흐름 설계 · 사용자 검증 · 팀장 · 교육부장관상</p><span class="go">자세히 보기 →</span>
-      </a>
-      <a class="pc" href="#window">
-        <div class="top"><span>03</span><span>2026.03 – 06</span></div>
-        <div class="thumb photo"><img src="assets/img/window_frames.jpg" alt="" loading="lazy"></div>
-        <h3>Drone Window Inspection</h3><p>AI 학습 데이터 제작 · 모델 비교</p><span class="go">자세히 보기 →</span>
       </a>
     </div>
   </div>
@@ -546,38 +548,27 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </div>
 </article>
 
-<!-- ===== 03 Window ===== -->
-<article class="project" id="window" aria-labelledby="win-t">
-  <div class="wrap">
-    <p class="eyebrow">Project 03 · 2026.03 – 2026.06</p>
-    <h2 id="win-t">Drone Window Inspection</h2>
-    <dl class="meta">
-      <div><dt>구분</dt><dd>AI융합특론 · 4인 팀</dd></div>
-      <div><dt>역할</dt><dd>AI 학습 데이터 제작 · 모델 비교</dd></div>
-      <div><dt>언어 · 기술</dt><dd>Python · PyTorch · OpenCV</dd></div>
-      <div><dt>결과 단위</dt><dd>창문 대비 얼룩 %</dd></div>
-    </dl>
-    <div class="lead2">
-      <p class="statement">드론으로 건물 창문을 찍어 얼룩이 창문 면적의 몇 %인지 재는 프로젝트입니다.</p>
-      <p>얼룩 탐지 모델의 학습 데이터 제작과 후보 모델 비교를 맡았습니다.</p>
-    </div>
-    <figure class="sq-graph">
-      <div class="frame scroll"><div class="in"><img src="assets/img/window_frames.jpg" alt="드론 영상 프레임별 창문 얼룩 검출 결과. 얼룩은 빨간 점으로 표시되고 프레임마다 창문 대비 얼룩 %가 적혀 있음" loading="lazy" width="2000" height="687"></div></div>
-      <figcaption class="cap"><span>영상 프레임별 창문 대비 얼룩 % 결과 · 빨간 점: 검출된 얼룩 · 팀 결과물</span></figcaption>
-    </figure>
-    <ol class="steps">
-      <li><div><b>정답을 코드로 만들기</b><p>깨끗한 창문 사진 34장에 얼룩 무늬 합성, 붙인 위치로 정답 자동 생성</p></div></li>
-      <li><div><b>칸 단위로 맞히기</b><p>창문을 16×16 칸으로 나눠 경계 모호성 감소, 결과는 창문 대비 얼룩 %</p></div></li>
-      <li><div><b>실제 사진 보정</b><p>SAM 2로 실제 사진 정답 제작, 깨끗한 창을 ‘얼룩 0%’로 추가</p></div></li>
-      <li><div><b>모델 비교·영상 처리</b><p>후보 4개 같은 조건 학습·비교, 영상 프레임별 얼룩 % CSV 저장</p></div></li>
-    </ol>
-  </div>
-</article>
 
 <section id="others" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <p class="eyebrow">Other Projects</p>
     <p class="statement">그 밖의 데이터·AI 경험</p>
+    <div class="oc feature" id="window">
+      <div class="frame"><div class="in"><img src="assets/img/window_frames.jpg" alt="드론 영상 프레임별 창문 얼룩 검출 결과. 얼룩은 빨간 점으로 표시되고 프레임마다 창문 대비 얼룩 %가 적혀 있음" loading="lazy" width="2000" height="687"></div></div>
+      <div>
+        <h3>Drone Window Inspection</h3>
+        <div class="m">2026.03 – 2026.06 · AI융합특론 · 4인 팀 · AI 학습 데이터 제작 · 모델 비교</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">SAM 2</span></div>
+        <p class="fd">드론으로 건물 창문을 찍어 얼룩이 창문 면적의 몇 %인지 재는 프로젝트입니다. 얼룩 탐지 모델의 학습 데이터 제작과 후보 모델 비교를 맡았습니다.</p>
+        <ul>
+          <li>깨끗한 창문 사진 34장에 얼룩 무늬 합성, 붙인 위치로 정답 자동 생성</li>
+          <li>창문을 16×16 칸으로 나눠 경계 모호성 감소, 결과는 창문 대비 얼룩 %</li>
+          <li>SAM 2로 실제 사진 정답 제작, 깨끗한 창을 ‘얼룩 0%’로 추가</li>
+          <li>후보 4개 같은 조건 학습·비교, 영상 프레임별 얼룩 % CSV 저장</li>
+        </ul>
+        <p class="note">사진: 영상 프레임별 창문 대비 얼룩 % 결과 · 빨간 점은 검출된 얼룩 · 팀 결과물</p>
+      </div>
+    </div>
     <div class="others">
       <div class="oc">
         <div class="badge" aria-hidden="true">A</div>
