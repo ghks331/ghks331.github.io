@@ -7,6 +7,8 @@
 <meta name="description" content="데이터 수집·가공부터 AI 모델 학습, LLM 평가·개선까지 — 이주환 포트폴리오">
 <meta name="color-scheme" content="light">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600&display=swap">
 <style>
 :root{
   --bg:#ffffff; --soft:#f3f5f8; --soft2:#e9edf2;
@@ -283,6 +285,70 @@ table.cmp tr.pick td+td{background:none;padding-left:0}
 .cta .btns{justify-content:center}
 footer{padding:44px 0 56px;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* ===== dark-hero / green-accent theme ===== */
+:root{--accent:#00b862;--accent-ink:#067a45;--accent-soft:#e1f5e9;--dark:#0b0b0c;--dark2:#161618;--dark3:#26262a;--soft:#f5f5f7;--soft2:#ececef;--line:#e2e2e6;--focus:#0a7cff}
+nav{background:#121212;border-bottom:1px solid #222}
+nav .logo{color:#fff}
+.logo .mk{background:var(--accent);color:var(--dark)}
+nav ul{align-items:center}
+nav ul a{color:#e4e4e7}
+nav ul a:hover{border-color:#fff}
+nav .nav-cta a{background:var(--accent);color:var(--dark);padding:7px 14px;border-radius:6px;font-weight:600;border:0}
+nav .nav-cta a:hover{background:#19c972}
+.hero{background:var(--dark);color:#fff;padding:150px 0 160px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.17) 1px,transparent 1.5px);background-size:7px 7px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 80%,#000 15%,transparent 72%);
+  mask-image:radial-gradient(ellipse 75% 65% at 50% 80%,#000 15%,transparent 72%)}
+.hero .wrap{position:relative}
+.hero-eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8e8e93;margin:0 0 22px}
+.hero h1{font-family:"Noto Serif KR",Pretendard,serif;font-weight:500;letter-spacing:-.02em;line-height:1.12;font-size:clamp(54px,8.4vw,108px);margin:0 0 28px}
+.hero h1 .sub{color:var(--accent)}
+.hero-sub{color:#a1a1a6;font-size:clamp(15px,1.6vw,18px);line-height:1.75;margin:0 0 38px}
+.hero .btns{justify-content:center}
+.pill{border-radius:8px}
+.pill::after{display:none}
+.pill.green{background:var(--accent);border-color:var(--accent);color:var(--dark)}
+.pill.green:hover{background:#19c972;border-color:#19c972}
+.pill.ghost-d{background:transparent;color:#fff;border-color:#3a3a3e}
+.pill.ghost-d:hover{border-color:#8e8e93}
+.eyebrow{color:var(--accent-ink)}
+.eyebrow::before{background:var(--accent)}
+.statement{font-weight:700}
+.hl{background:#fff}
+.edu,.kit .k{border:1px solid var(--line);border-radius:12px}
+#projects{background:var(--soft);padding-bottom:110px!important}
+.pc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;transition:border-color .15s,transform .15s}
+.pc:hover{border-color:var(--fg);transform:translateY(-2px)}
+.pc .thumb{border-radius:8px}
+.pc .go{color:var(--fg)}
+.frame{background:none!important;border:1px solid var(--line);border-radius:12px;padding:14px}
+.frame .in{border-radius:6px}
+.award{background:var(--accent-soft);color:var(--accent-ink)}
+.steps .ver{color:var(--accent-ink);background:var(--accent-soft)}
+.gsvg .bandl{fill:var(--accent-ink)}
+.flow{border-radius:12px}
+.chart{border-radius:12px}
+.oc{background:var(--dark2);color:#f4f4f5;border-radius:12px}
+.oc .m{color:#9a9aa0}
+.oc ul{color:#d4d4d8}
+.oc .chip{background:var(--dark3);border-color:var(--dark3);color:#e4e4e7}
+.oc .badge{background:transparent;border:1px solid #3a3a3e;color:#e4e4e7;font-size:13px}
+.oc.feature{background:var(--dark2)}
+.oc.feature .fd{color:#d4d4d8}
+.oc.feature .note{color:#8e8e93}
+.oc.feature .frame{border-color:#2c2c30}
+.cta{background:var(--dark);color:#fff;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.5px);background-size:7px 7px;
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 100%,#000 10%,transparent 70%);
+  mask-image:radial-gradient(ellipse 60% 70% at 50% 100%,#000 10%,transparent 70%)}
+.cta .wrap{position:relative}
+.cta h2{font-family:"Noto Serif KR",Pretendard,serif;font-weight:500;letter-spacing:-.02em}
+.cta p{color:#a1a1a6}
+.cta .badge{background:var(--accent);color:var(--dark)}
+footer{background:var(--dark);color:#8e8e93;border-top:1px solid #1f1f22}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -296,7 +362,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li class="hide-sm"><a href="#others">Others</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li class="nav-cta"><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -305,13 +371,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <header class="hero" id="top">
   <div class="wrap">
+    <p class="hero-eyebrow">Data &amp; AI Portfolio</p>
     <h1><span>이주환</span><span class="sub">Data &amp; AI</span></h1>
-    <div class="row">
-      <p>한동대학교 AI융합학부 · ICT융합·데이터사이언스 전공<br>2027.02 졸업예정 (현재 수료 상태)</p>
-      <div class="btns">
-        <a class="pill" href="#projects">프로젝트 보기</a>
-        <a class="pill ghost" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오<span class="sr"> (새 창)</span></a>
-      </div>
+    <p class="hero-sub">한동대학교 AI융합학부 · ICT융합·데이터사이언스 전공<br>2027.02 졸업예정 (현재 수료 상태)</p>
+    <div class="btns">
+      <a class="pill green" href="#projects">프로젝트 보기</a>
+      <a class="pill ghost-d" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오<span class="sr"> (새 창)</span></a>
     </div>
   </div>
 </header>
@@ -684,9 +749,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <h2>Contact</h2>
     <p>이주환 · 한동대학교 AI융합학부</p>
     <div class="btns">
-      <a class="pill" href="mailto:jxjhlee@gmail.com">jxjhlee@gmail.com</a>
-      <a class="pill blue" href="https://github.com/ghks331" target="_blank" rel="noopener">github.com/ghks331<span class="sr"> (새 창)</span></a>
-      <a class="pill ghost" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오<span class="sr"> (새 창)</span></a>
+      <a class="pill green" href="mailto:jxjhlee@gmail.com">jxjhlee@gmail.com</a>
+      <a class="pill ghost-d" href="https://github.com/ghks331" target="_blank" rel="noopener">github.com/ghks331<span class="sr"> (새 창)</span></a>
+      <a class="pill ghost-d" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오<span class="sr"> (새 창)</span></a>
     </div>
   </div>
 </section>
