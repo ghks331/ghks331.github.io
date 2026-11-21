@@ -11,7 +11,7 @@
 :root{
   --bg:#ffffff; --soft:#f3f5f8; --soft2:#e9edf2;
   --fg:#0e0f11; --muted:#5a6068; --line:#dfe3e8;
-  --lime:#c9f26b; --lime-d:#a9d94a; --focus:#2357d9; --bar0:#c9ced6;
+  --accent:#2f5bea; --accent-soft:#e8eefd; --focus:#2357d9; --bar0:#c9ced6;
   --max:1240px; --gut:40px;
 }
 *{box-sizing:border-box}
@@ -34,7 +34,7 @@ img{max-width:100%;height:auto;display:block}
 nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.02em;line-height:1.05;font-size:14px}
-.logo .mk{width:28px;height:28px;border-radius:8px;background:var(--lime);display:grid;place-items:center;font-size:13px}
+.logo .mk{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px}
 nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px}
 nav ul a{text-decoration:none;padding:4px 0;border-bottom:1.5px solid transparent}
 nav ul a:hover{border-color:var(--fg)}
@@ -42,17 +42,17 @@ nav ul a:hover{border-color:var(--fg)}
 
 /* ---------- shared ---------- */
 .eyebrow{font-size:13px;font-weight:600;color:var(--muted);margin:0 0 18px;display:flex;align-items:center;gap:8px}
-.eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--lime-d)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent)}
 .statement{font-size:clamp(26px,3.4vw,40px);line-height:1.2;letter-spacing:-.03em;font-weight:600;margin:0}
 .pill{display:inline-flex;align-items:center;gap:12px;background:var(--fg);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:11px 18px 11px 20px;border-radius:999px;border:1.5px solid var(--fg);transition:transform .15s}
-.pill::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime)}
+.pill::after{content:"";width:7px;height:7px;border-radius:50%;background:#8fa9f5}
 .pill:hover{transform:translateY(-1px)}
 .pill.ghost{background:transparent;color:var(--fg)}
 .pill.ghost::after{background:var(--fg)}
-.pill.lime{background:var(--lime);color:var(--fg);border-color:var(--lime)}
-.pill.lime::after{background:var(--fg)}
+.pill.blue{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pill.blue::after{background:#fff}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
-.badge{width:40px;height:40px;border-radius:8px;background:var(--lime);display:grid;place-items:center;font-weight:800;font-size:15px}
+.badge{width:40px;height:40px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
 section{padding:120px 0}
 @media (max-width:700px){section{padding:80px 0}}
 
@@ -78,7 +78,9 @@ section{padding:120px 0}
 .hero .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid var(--fg);padding:26px 0 44px}
 .hero .row p{margin:0;font-size:clamp(17px,1.8vw,21px);line-height:1.45;max-width:560px}
 .hero .row p b{font-weight:700}
-.hero-visual{background:var(--soft);padding:48px 0 56px}
+.hero h1 .sub{color:var(--accent)}
+.hero .row{padding-bottom:72px}
+.sq-graph{margin:0 0 56px}
 
 /* ---------- about ---------- */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:64px}
@@ -132,7 +134,7 @@ section{padding:120px 0}
 .project{padding:120px 0;border-top:1px solid var(--line)}
 @media (max-width:700px){.project{padding:80px 0}}
 .project h2{font-size:clamp(40px,6.6vw,92px);line-height:1;letter-spacing:-.05em;font-weight:700;margin:0 0 28px}
-.award{display:inline-flex;align-items:center;gap:8px;background:var(--lime);font-size:13px;font-weight:700;border-radius:999px;padding:5px 12px;margin-bottom:18px}
+.award{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:700;border-radius:999px;padding:5px 12px;margin-bottom:18px}
 .meta{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--fg);border-bottom:1px solid var(--line);margin:0 0 48px}
 .meta div{padding:14px 16px 16px 0}
 .meta dt{font-size:12px;color:var(--muted);font-weight:600}
@@ -168,7 +170,7 @@ section{padding:120px 0}
 table.cmp{width:100%;border-collapse:collapse;font-size:14px}
 table.cmp th,table.cmp td{text-align:left;padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
 table.cmp th{font-size:12px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--fg)}
-table.cmp tr.pick td{font-weight:700;background:linear-gradient(90deg,var(--lime) 0 6px,transparent 6px);padding-left:16px}
+table.cmp tr.pick td{font-weight:700;background:linear-gradient(90deg,var(--accent) 0 6px,transparent 6px);padding-left:16px}
 table.cmp tr.pick td+td{background:none;padding-left:0}
 
 /* ---------- interactive flow ---------- */
@@ -177,7 +179,7 @@ table.cmp tr.pick td+td{background:none;padding-left:0}
 .hint{font-size:13px;color:var(--muted);margin:0}
 .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted)}
 .legend i{display:inline-block;width:13px;height:13px;border-radius:3px;vertical-align:-2px;margin-right:5px;border:1.5px solid var(--fg);background:#fff}
-.legend .lg-ai{background:var(--fg)} .legend .lg-wait{border-style:dashed;background:transparent} .legend .lg-ev{background:var(--lime);border-color:var(--lime)}
+.legend .lg-ai{background:var(--fg)} .legend .lg-wait{border-style:dashed;background:transparent} .legend .lg-ev{background:var(--accent-soft);border-color:var(--accent)}
 .seq{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(9,1fr);gap:12px}
 .seq>li{position:relative;display:flex;flex-direction:column;gap:8px}
 .seq>li:not(:last-child)::after{content:"";position:absolute;top:33px;right:-12px;width:12px;height:1.5px;background:var(--fg)}
@@ -192,9 +194,9 @@ table.cmp tr.pick td+td{background:none;padding-left:0}
 .node.side{min-height:0;font-size:12px;padding:6px 8px}
 .node.judge{border-radius:999px;text-align:center;align-items:center;min-height:0;padding:6px 10px;font-size:13px}
 .node:hover{transform:translateY(-1px)}
-.node[aria-pressed="true"]{box-shadow:0 0 0 4px var(--lime)}
-.node .ev{display:inline-block;font-size:10px;font-weight:700;background:var(--lime);color:var(--fg);border-radius:999px;padding:1px 7px;margin-top:5px;width:max-content}
-.flow-panel{margin-top:16px;background:#fff;border-radius:4px;padding:18px 20px;min-height:128px;border-left:4px solid var(--lime)}
+.node[aria-pressed="true"]{box-shadow:0 0 0 4px var(--accent)}
+.node .ev{display:inline-block;font-size:10px;font-weight:700;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:1px 7px;margin-top:5px;width:max-content}
+.flow-panel{margin-top:16px;background:#fff;border-radius:4px;padding:18px 20px;min-height:128px;border-left:4px solid var(--accent)}
 .flow-panel h4{margin:0 0 6px;font-size:17px}
 .flow-panel p{margin:0 0 8px;font-size:14px}
 .flow-panel ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted)}
@@ -215,7 +217,7 @@ table.cmp tr.pick td+td{background:none;padding-left:0}
 .brow .val{font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
 .track{height:16px;background:#fff;border-radius:999px;overflow:hidden}
 .bar{height:100%;width:calc(var(--v) * 1%);border-radius:999px;background:var(--bar0);transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
-.bar.after{background:var(--fg)}
+.bar.after{background:var(--accent)}
 .js .chart:not(.in) .bar{width:0}
 .chart .delta{margin:18px 0 0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px}
 .chart .delta small{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0}
@@ -265,19 +267,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <header class="hero" id="top">
   <div class="wrap">
-    <h1><span>데이터 수집부터</span><span>LLM 평가·개선까지</span></h1>
+    <h1><span>이주환</span><span class="sub">Data &amp; AI</span></h1>
     <div class="row">
-      <p><b>이주환</b> · 한동대학교 AI융합학부<br>데이터 수집·가공, AI 모델 학습, LLM 평가·개선을 해 왔습니다.</p>
+      <p>한동대학교 AI융합학부 · ICT융합·데이터사이언스 전공<br>2027.02 졸업예정 · 나무아이씨티 현장실습 (2026.08–12)</p>
       <div class="btns">
         <a class="pill" href="#projects">프로젝트 보기</a>
         <a class="pill ghost" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오<span class="sr"> (새 창)</span></a>
       </div>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="wrap">
-      <div class="frame scroll"><div class="in"><img src="assets/img/sequora_flow.png" alt="SEQUORA 처리 흐름 그래프: 요청 접수부터 기록까지 9단계" width="2400" height="625"></div></div>
-      <div class="cap"><span>SEQUORA · 직접 구현한 LangGraph 처리 흐름</span><a href="#sequora">자세히 보기 →</a></div>
     </div>
   </div>
 </header>
@@ -360,6 +356,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <p class="statement">연구자가 말로 요청하면 AI가 분석 조건을 정리하고, 규칙으로 검사하고, 사람이 확인하면 분석을 실행하는 도우미입니다.</p>
       <p>연구자는 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청합니다. 이 중 AI가 들어가는 부분의 구현·성능 측정·개선을 맡았습니다.</p>
     </div>
+    <figure class="sq-graph">
+      <div class="frame scroll"><div class="in"><img src="assets/img/sequora_flow.png" alt="SEQUORA 처리 흐름 그래프: 요청 접수부터 기록까지 9단계" loading="lazy" width="2400" height="625"></div></div>
+      <figcaption class="cap"><span>직접 구현한 처리 흐름 그래프(LangGraph) · 검은색: AI 해석·규칙 검사 / 점선: 사람 응답 대기</span></figcaption>
+    </figure>
 
     <div class="part">
       <div class="ph"><span class="no">Part 1</span><h3>AI 도우미 구현</h3><p>요청 해석부터 검사·승인·실행까지 9단계 처리 흐름을 연결하고, 틀린 AI 답은 규칙으로 걸러 재시도합니다.</p></div>
@@ -519,10 +519,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <div class="flow-panel" id="web-panel" aria-live="polite"></div>
           </div>
         </div>
-        <figure style="margin:40px 0 0">
-          <div class="frame scroll"><div class="in"><img src="assets/img/hb_journey.png" alt="접근 과정 및 수행 실험 7단계: LLM 단독 처리와 웹 크롤링, Segmentation 실험, 토큰 제한 해결 분기 실험, 식별 및 추적 가능 실험, LangGraph 운영, 최종 아키텍처, 실서비스 적용 검증" loading="lazy" width="2000" height="1089"></div></div>
-          <figcaption class="cap"><span>접근 과정 및 수행 실험 7단계 · 팀 발표 자료</span></figcaption>
-        </figure>
       </div>
     </div>
 
@@ -627,7 +623,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <p>이주환 · 한동대학교 AI융합학부</p>
     <div class="btns">
       <a class="pill" href="mailto:ghks0331@naver.com">ghks0331@naver.com</a>
-      <a class="pill lime" href="https://github.com/ghks331" target="_blank" rel="noopener">github.com/ghks331<span class="sr"> (새 창)</span></a>
+      <a class="pill blue" href="https://github.com/ghks331" target="_blank" rel="noopener">github.com/ghks331<span class="sr"> (새 창)</span></a>
       <a class="pill ghost" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오<span class="sr"> (새 창)</span></a>
     </div>
   </div>
