@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이주환 · Data & AI Portfolio</title>
+<meta name="description" content="데이터 수집·가공부터 AI 모델 학습, LLM 평가·개선까지 — 이주환 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f6f6f4; --fg:#111111; --muted:#5f5f5f; --line:#e4e4e0;
+  --accent:#111111; --chip:#efefec; --max:1040px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#121212; --bg2:#1b1b1b; --fg:#ededed; --muted:#a3a3a3; --line:#2c2c2c; --accent:#ededed; --chip:#242424; }
+  .diagram{ background:#fff; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:64px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .logo{font-weight:800;letter-spacing:-.02em;text-decoration:none}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--fg)}
+@media (max-width:600px){nav ul{gap:14px;font-size:13px} nav ul li.hide-sm{display:none}}
+
+/* hero */
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.15;letter-spacing:-.035em;margin:14px 0 18px;font-weight:800}
+.hero p.lead{font-size:clamp(16px,2.2vw,19px);color:var(--muted);margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;border:1px solid var(--fg);font-size:14px;font-weight:600;text-decoration:none}
+.btn.primary{background:var(--fg);color:var(--bg)}
+
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:28px;letter-spacing:-.03em;margin:0 0 8px;font-weight:800}
+section .sub{color:var(--muted);margin:0 0 36px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:760px){.about-grid{grid-template-columns:1fr}}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{margin:0 0 10px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.card p{margin:0}
+.card .strong{font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:13px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.timeline li:first-child{border-top:0;padding-top:0}
+.timeline .when{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.timeline .what{font-weight:700}
+.timeline .desc{color:var(--muted);font-size:14px}
+@media (max-width:500px){.timeline li{grid-template-columns:1fr;gap:2px}}
+
+/* project index */
+.proj-index{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.proj-index{grid-template-columns:1fr}}
+.pcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:22px;transition:border-color .15s,transform .15s}
+.pcard:hover{border-color:var(--fg);transform:translateY(-2px)}
+.pcard .num{font-size:13px;color:var(--muted);font-weight:700}
+.pcard h3{margin:6px 0 8px;font-size:20px;letter-spacing:-.02em}
+.pcard p{margin:0;color:var(--muted);font-size:14px}
+.pcard .badge{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;border:1px solid var(--fg);border-radius:999px;padding:2px 9px}
+
+/* project detail */
+.project{padding:72px 0;border-bottom:1px solid var(--line)}
+.project .head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:20px}
+.project h2{font-size:clamp(26px,4vw,36px)}
+.project .period{color:var(--muted);font-variant-numeric:tabular-nums}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:22px}
+.meta div{background:var(--bg);padding:14px 16px}
+.meta dt{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em}
+.meta dd{margin:2px 0 0;font-size:14px;font-weight:600}
+@media (max-width:640px){.meta{grid-template-columns:1fr}}
+.summary{font-size:17px;margin:0 0 32px}
+.award{display:inline-block;background:var(--fg);color:var(--bg);font-size:13px;font-weight:700;border-radius:6px;padding:3px 10px;margin-bottom:14px}
+h3.part{font-size:19px;letter-spacing:-.02em;margin:40px 0 6px}
+h3.part span{color:var(--muted);font-weight:600;font-size:14px;margin-right:8px}
+.part-desc{color:var(--muted);margin:0 0 16px;font-size:15px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
+.box{border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.box b{display:block;margin-bottom:4px}
+.box p{margin:0;font-size:14px;color:var(--muted)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.steps li::before{content:counter(s,decimal-leading-zero);font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.steps b{display:block}
+.steps p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0}
+@media (max-width:760px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px}
+.stat .k{font-size:13px;color:var(--muted);font-weight:600}
+.stat .v{font-size:26px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:4px}
+.stat .n{font-size:13px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+figure{margin:18px 0 0}
+.diagram{border:1px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto;background:#fff}
+.diagram img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram.wide img{min-width:760px}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+table.cmp{width:100%;border-collapse:collapse;font-size:14px}
+table.cmp th,table.cmp td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+table.cmp th{font-size:12px;color:var(--muted);font-weight:700}
+table.cmp tr.pick td{font-weight:700}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+
+/* others */
+.others{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.others{grid-template-columns:1fr}}
+.other h3{margin:0 0 2px;font-size:18px}
+.other .m{font-size:13px;color:var(--muted);margin-bottom:12px}
+.other ul{margin:12px 0 0;padding-left:18px;font-size:14px}
+.other li{margin:3px 0}
+
+footer{padding:64px 0 80px}
+footer h2{font-size:28px;margin:0 0 10px;letter-spacing:-.03em}
+footer p{color:var(--muted);margin:0 0 20px}
+.tiny{font-size:12px;color:var(--muted);margin-top:40px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">JH</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li class="hide-sm"><a href="#others">Others</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Data &amp; AI Portfolio</div>
+    <h1>이주환</h1>
+    <p class="lead">데이터 수집·가공부터 AI 모델 학습, LLM 평가·개선까지<br>한동대학교 AI융합학부</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">프로젝트 보기 ↘</a>
+      <a class="btn" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오</a>
+      <a class="btn" href="mailto:ghks0331@naver.com">Email</a>
+      <a class="btn" href="https://github.com/ghks331" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About Me</h2>
+    <p class="sub">학력 · 수상 · 자격 · 기술 · 경험</p>
+    <div class="about-grid">
+      <div style="display:grid;gap:16px">
+        <div class="card">
+          <h3>Education</h3>
+          <p class="strong">한동대학교 AI융합학부</p>
+          <p>ICT융합 · 데이터사이언스 전공</p>
+          <p style="color:var(--muted);font-size:14px">2019.03 – 2027.02 졸업예정 · GPA 3.8 / 4.5</p>
+        </div>
+        <div class="card">
+          <h3>Award</h3>
+          <p class="strong">WE-Meet 빅데이터 부문 대상 (교육부장관상)</p>
+          <p style="color:var(--muted);font-size:14px">HeartyBridge 웹 접근성 개선 에이전트 · 2025</p>
+        </div>
+        <div class="card">
+          <h3>Certificates</h3>
+          <div class="chips"><span class="chip">SQLD</span><span class="chip">ADsP</span><span class="chip">DP-900</span><span class="chip">AZ-900</span><span class="chip">컴퓨터활용능력 2급</span></div>
+        </div>
+        <div class="card">
+          <h3>Skills</h3>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">pandas</span><span class="chip">PyTorch</span><span class="chip">LangGraph</span>
+            <span class="chip">OpenAI·Gemini API</span><span class="chip">Ollama</span><span class="chip">MLX</span><span class="chip">YOLO11</span><span class="chip">OpenCV</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Experience</h3>
+        <ul class="timeline">
+          <li><span class="when">2026.08 – 12</span><div><div class="what">나무아이씨티 현장실습</div><div class="desc">유전체 분석을 말로 요청하는 AI 도우미 개발</div></div></li>
+          <li><span class="when">2025.09 – 26.02</span><div><div class="what">K-U시티 연구 참여</div><div class="desc">울릉군 교통 데이터 수집, 차량 통행량 자동 집계</div></div></li>
+          <li><span class="when">2025 – 2026</span><div><div class="what">수업·캠프 TA (총 4회)</div><div class="desc">딥러닝 수업 튜터, Agentic AI·예측 캠프 실습 지원</div></div></li>
+          <li><span class="when">2025.03 – 06</span><div><div class="what">한동대 VIC센터</div><div class="desc">코딩 강의 자료 제작 및 검토</div></div></li>
+          <li><span class="when">2023.12 – 24.06</span><div><div class="what">디지털·코딩 교육</div><div class="desc">초등학생 대상 컴퓨터 기초·엔트리 코딩 지도</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="border-bottom:0;padding-bottom:0">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">프로젝트별 기간·구분·역할·기술 정리</p>
+    <div class="proj-index">
+      <a class="pcard" href="#sequora"><div class="num">01 · 2026.08 – 12</div><h3>SEQUORA</h3><p>현장실습 · AI 도우미 개발 · 프롬프트 개선 · 작은 모델 학습</p></a>
+      <a class="pcard" href="#webaccess"><div class="num">02 · 2025.03 – 2026.01</div><h3>시각장애인 웹 접근성 최적화</h3><p>데이터 수집 · AI 처리 흐름 설계 · 사용자 검증 · 팀장</p><span class="badge">교육부장관상</span></a>
+      <a class="pcard" href="#window"><div class="num">03 · 2026.03 – 06</div><h3>Drone Window Inspection</h3><p>AI 학습 데이터 제작 · 모델 비교</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 01 SEQUORA -->
+<article class="project" id="sequora">
+  <div class="wrap">
+    <div class="head"><h2>01 · SEQUORA</h2><span class="period">2026.08 – 2026.12 (진행 중)</span></div>
+    <dl class="meta">
+      <div><dt>구분</dt><dd>나무아이씨티 현장실습</dd></div>
+      <div><dt>역할</dt><dd>AI 기능 구현 · 성능 평가 · 모델 학습</dd></div>
+      <div><dt>언어 · 기술</dt><dd>Python · LangGraph · Ollama · MLX</dd></div>
+    </dl>
+    <p class="summary">연구자가 ‘이 데이터로 유전자 발현 분석해 줘’처럼 말로 요청하면 AI가 분석 조건을 정리하고, 규칙으로 검사한 뒤, 사람이 확인하면 분석을 실행하는 도우미입니다. 이 중 AI가 들어가는 부분의 구현·성능 측정·개선을 맡았습니다.</p>
+
+    <h3 class="part"><span>Part 1</span>AI 도우미 구현</h3>
+    <p class="part-desc">요청 해석부터 검사·승인·실행까지 9단계 처리 흐름을 연결하고, 틀린 AI 답은 규칙으로 걸러 재시도합니다.</p>
+    <div class="grid3">
+      <div class="box"><b>9단계 처리 흐름</b><p>요청 접수~기록 연결. 진행·되묻기·재생성 분기, 승인 후 설정 변경 시 승인 무효</p></div>
+      <div class="box"><b>PC용 AI 모델 연결</b><p>Ollama 모델 연결, 정해진 양식으로만 답하도록 제한</p></div>
+      <div class="box"><b>틀린 답 재시도</b><p>답 양식이 틀리면 다시 생성. 규칙 검사 탈락 시 설정 재생성, 같은 오류 3회면 사람 검토로 전달</p></div>
+    </div>
+    <figure>
+      <div class="diagram wide"><img src="assets/img/sequora_flow.png" alt="SEQUORA LangGraph 처리 흐름: 요청 접수, 요청 해석, 데이터 조회, 실행 설정 생성, 규칙 검사, 사람 승인, 실행 제출, 상태 확인, 기록" loading="lazy"></div>
+      <figcaption>직접 구현한 처리 흐름 그래프(LangGraph) · 검은색: AI 해석·규칙 검사 / 점선: 사람 응답 대기</figcaption>
+    </figure>
+    <p class="note">규칙 검사 API와 분석 서버 연동은 팀원 담당이며, 연동 구조와 테스트 방식을 옆에서 보며 배웠습니다.</p>
+
+    <h3 class="part"><span>Part 2</span>프롬프트 평가·개선</h3>
+    <p class="part-desc">9단계 중 ② 요청 해석 · ③ 데이터 조회 구간을 따로 떼어 점수로 검증했습니다. (2026.10 – 11)</p>
+    <ol class="steps">
+      <li><div><b>1차 해석 (AI)</b><p>요청에서 분석 종류·생물종·빠진 정보와 데이터 ‘언급’만 추출. 데이터 번호는 이 단계에서 정하지 않음</p></div></li>
+      <li><div><b>데이터 조회 (코드)</b><p>언급된 이름·별칭을 카탈로그에서 조회해 실제 후보 목록 생성. 후보가 없으면 한 번 더 조회</p></div></li>
+      <li><div><b>최종 확정 (AI + 규칙)</b><p>AI는 조회된 후보 안에서만 번호 선택. 목록에 없는 번호·빈 항목은 코드로 보정</p></div></li>
+    </ol>
+    <div class="grid3" style="margin-top:14px">
+      <div class="box"><b>시험 문제</b><p>실제처럼 쓴 요청 248개, 7묶음. 정보 누락·애매한 표현·모순·오타·AI를 속이려는 문장 포함</p></div>
+      <div class="box"><b>자동 채점</b><p>항목별 정답 비교. AI 원래 답과 규칙 보정 답을 분리 기록</p></div>
+      <div class="box"><b>기록·비교</b><p>문제별 답 원문·응답 시간·사용량 기록. 지시문 버전과 모델을 같은 조건에서 비교</p></div>
+    </div>
+    <div class="stats" style="margin-top:18px">
+      <div class="stat"><div class="k">처음 보는 표현 144문제</div><div class="v">54.9% → 91.0%</div><div class="n">지시문 23차례 개선</div></div>
+      <div class="stat"><div class="k">규칙 보정</div><div class="v">52문제</div><div class="n">보정으로 살림 · 보정 탓 오답 0개</div></div>
+      <div class="stat"><div class="k">평균 응답</div><div class="v">4.6초</div><div class="n">PC용 모델 5종 비교</div></div>
+    </div>
+    <p class="note">실험 환경에서 측정한 결과입니다(실제 서비스 테스트 전). 점수가 떨어진 버전은 되돌렸고, 정답이 정해진 부분은 코드로 보정했습니다.</p>
+
+    <h3 class="part"><span>Part 3</span>작은 모델 학습·양자화</h3>
+    <p class="part-desc">크기가 비슷할 때, 큰 모델을 양자화해 줄인 것과 처음부터 작은 모델 중 어느 쪽이 더 잘하는지 비교했습니다. Qwen3 · MLX · 모든 모델 같은 LoRA 설정, 같은 시험 문제 32개 · 실습용 소규모 데이터.</p>
+    <div class="grid2">
+      <div class="box"><b>실험 구성</b><p>4B를 2·3·4bit로 양자화 → 학습 전 기본 비교 → 원본 LoRA 그대로 붙이기 → 양자화 모델 위 QLoRA 학습 → 0.6B 원본과 비교</p></div>
+      <div class="box"><b>사전 탐색 · 학습 방식 4종 비교 (0.6B)</b><p>QLoRA·RsLoRA·QDoRA·QPiSSA를 같은 문제로 비교. 학습 오차(loss)가 낮아도 정답이 높지는 않아 실제 과제 기준 채점으로 판단</p></div>
+      <div class="box"><b>결과: 크기가 비슷하면 큰 차이 없음</b><p>1–2GB 구간에서 4B 양자화와 0.6B 원본의 차이는 1문제 수준. 메모리를 1/4로 줄인 4B도 원본과 같은 정답 수</p></div>
+      <div class="box"><b>앞으로 고려할 점</b><p>양자화한 모델은 그 위에서 다시 학습 필요(원본용 LoRA를 그대로 붙이면 성능 붕괴). 어려운 문제는 여전히 원본이 우세. 실제 사용할 Ollama 형식과 더 많은 문제로 다시 확인 필요</p></div>
+    </div>
+  </div>
+</article>
+
+<!-- 02 Web Access -->
+<article class="project" id="webaccess">
+  <div class="wrap">
+    <div class="head"><h2>02 · 시각장애인 웹 접근성 최적화</h2><span class="period">2025.03 – 2026.01</span></div>
+    <span class="award">WE-Meet 빅데이터 부문 대상 · 교육부장관상</span>
+    <dl class="meta">
+      <div><dt>구분</dt><dd>산학협력 캡스톤 · 3인 팀</dd></div>
+      <div><dt>역할</dt><dd>팀장 · 데이터·모델 · AI 처리 흐름</dd></div>
+      <div><dt>언어 · 기술</dt><dd>Python · YOLO · LangGraph</dd></div>
+    </dl>
+    <p class="summary">시각장애인은 화면을 소리로 읽어 주는 프로그램과 Tab 키로 웹을 사용합니다. 웹페이지 구조를 AI로 분석해 읽기 쉬운 순서로 다시 정리하는 크롬 확장 프로그램을 만들었습니다.</p>
+
+    <div class="grid3">
+      <div class="box"><b>버튼·이미지 설명 없음</b><p>‘버튼’, ‘이미지’라고만 읽혀 기능을 알 수 없음</p></div>
+      <div class="box"><b>Tab 이동 과다</b><p>광고·배너를 다 지나야 원하는 정보 도달 (평균 150번)</p></div>
+      <div class="box"><b>AI가 읽기엔 긴 페이지</b><p>코드를 통째로 넣으면 입력 한도 초과·엉뚱한 결과</p></div>
+    </div>
+
+    <h3 class="part"><span>Part 1</span>데이터 수집·학습 데이터 제작</h3>
+    <p class="part-desc">웹페이지 수집부터 화면 영역 학습 데이터 제작·모델 학습, 화면 분할 방식 비교까지 진행했습니다.</p>
+    <ol class="steps">
+      <li><div><b>웹 데이터 수집</b><p>BeautifulSoup·Selenium·Playwright·Puppeteer 4종 비교 → 동적 화면 반영을 위해 브라우저 확장에서 직접 수집</p></div></li>
+      <li><div><b>학습 데이터 제작</b><p>쇼핑·교육 사이트 화면에 ‘상품 목록’·‘배너’·‘정보창’ 영역 표시, 541장 (변형 이미지 포함)</p></div></li>
+      <li><div><b>모델 학습</b><p>화면에서 영역 위치를 찾는 객체 탐지 모델(YOLO 등) 학습</p></div></li>
+      <li><div><b>코드 연결</b><p>찾은 위치를 실제 웹페이지 코드와 매칭, 영역별 번호 부여 후 AI 입력 크기로 축소</p></div></li>
+    </ol>
+    <div class="tbl" style="margin-top:16px">
+      <table class="cmp">
+        <thead><tr><th>화면 분할 방식</th><th>문제</th></tr></thead>
+        <tbody>
+          <tr><td>이미지만 보고 나누기</td><td>큰 영역 경계 부정확</td></tr>
+          <tr><td>AI에게 화면 사진 주기</td><td>코드 구조·읽는 순서와 어긋남</td></tr>
+          <tr><td>사람이 직접 지정</td><td>페이지마다 수작업, 확장 불가</td></tr>
+          <tr><td>AI가 코드 통째로 나누기</td><td>코드가 중간에 끊김</td></tr>
+          <tr class="pick"><td>채택 · 학습한 모델 + 규칙</td><td>모델로 영역을 찾고 규칙으로 실제 코드 확정. 새 사이트는 규칙 몇 개만 추가</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="part"><span>Part 2</span>AI 처리 흐름(에이전트) 설계</h3>
+    <p class="part-desc">상용 AI API(GPT-4o) 프롬프트 실험에서 시작해, 변환 결과를 AI 검사관(Judge)이 채점하는 LangGraph 흐름으로 발전시켰습니다.</p>
+    <div class="split">
+      <div>
+        <ol class="steps">
+          <li><div><b>한 번에 요청</b><p>코드 전체를 넣고 한 번에 수정 요청 → 복잡한 페이지는 결과 불안정</p></div></li>
+          <li><div><b>원인 측정</b><p>영역별 토큰 측정: 상단 메뉴 16,689 · 본문 13,552 → 입력 과다 확인</p></div></li>
+          <li><div><b>단계별 요청</b><p>설명 추가 → 메뉴 정리로 나눠 순차 요청. 틀린 결과 걸러낼 장치 부재</p></div></li>
+          <li><div><b>LangGraph 전환</b><p>유형 판단 → 변환 → Judge 검사로 노드를 나누고 불합격 시 재실행</p></div></li>
+        </ol>
+        <div class="grid2" style="margin-top:14px">
+          <div class="box"><b>변환 유형 판단</b><p>토큰 1,000 미만이면 변환 생략, 그 외에는 AI가 구조 유형(목록·메뉴·푸터 / 강의 상세) 선택</p></div>
+          <div class="box"><b>구조 변환</b><p>목록·메뉴는 키보드로 탐색 가능한 접힘 구조로, 강의 카드는 계층형 접힘 구조로 변환</p></div>
+          <div class="box"><b>접근성 마무리</b><p>한국어 ARIA 라벨, 페이지 요약 삽입, 장식 요소 숨김 처리</p></div>
+          <div class="box"><b>Judge 검사</b><p>변환마다 요구사항 충족을 yes/no로 판정. no면 같은 노드 재실행, 재귀 한도 5로 무한 반복 방지</p></div>
+        </div>
+      </div>
+      <figure style="margin:0">
+        <div class="diagram"><img src="assets/img/webaccess_langgraph.png" alt="웹 접근성 LangGraph 흐름: 변환 유형 판단, 목록·메뉴 구조 변환, 강의 상세 변환, Judge 검사, 접근성 마무리" loading="lazy"></div>
+        <figcaption>LangGraph 흐름 · Judge 불합격 시 같은 노드 재실행</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="part"><span>Part 3</span>사용자 검증</h3>
+    <p class="part-desc">시각장애인 5명이 화면 읽기 프로그램으로 K-MOOC·쿠팡에서 같은 과제 5개를 원래 페이지와 개선 페이지에서 각각 수행했습니다. 비슷한 내용 묶기, 광고 접기, 맨 위 페이지 요약으로 이동 거리를 줄였습니다.</p>
+    <div class="stats">
+      <div class="stat"><div class="k">평균 탐색 시간</div><div class="v">124.98초 → 52.64초</div><div class="n">−57.9%</div></div>
+      <div class="stat"><div class="k">평균 Tab 이동</div><div class="v">150회 → 39.6회</div><div class="n">−73.6%</div></div>
+      <div class="stat"><div class="k">수상</div><div class="v" style="font-size:20px">WE-Meet 대상</div><div class="n">빅데이터 부문 · 교육부장관상</div></div>
+    </div>
+  </div>
+</article>
+
+<!-- 03 Window -->
+<article class="project" id="window">
+  <div class="wrap">
+    <div class="head"><h2>03 · Drone Window Inspection</h2><span class="period">2026.03 – 2026.06</span></div>
+    <dl class="meta">
+      <div><dt>구분</dt><dd>AI융합특론 · 4인 팀</dd></div>
+      <div><dt>역할</dt><dd>AI 학습 데이터 제작 · 모델 비교</dd></div>
+      <div><dt>언어 · 기술</dt><dd>Python · PyTorch · OpenCV</dd></div>
+    </dl>
+    <p class="summary">드론으로 건물 창문을 찍어 얼룩이 창문 면적의 몇 %인지 재는 프로젝트입니다. 얼룩 탐지 모델의 학습 데이터 제작과 후보 모델 비교를 맡았습니다.</p>
+    <ol class="steps">
+      <li><div><b>정답을 코드로 만들기</b><p>깨끗한 창문 사진 34장에 얼룩 무늬 합성, 붙인 위치로 정답 자동 생성</p></div></li>
+      <li><div><b>칸 단위로 맞히기</b><p>창문을 16×16 칸으로 나눠 경계 모호성 감소, 결과는 창문 대비 얼룩 %</p></div></li>
+      <li><div><b>실제 사진 보정</b><p>SAM 2로 실제 사진 정답 제작, 깨끗한 창을 ‘얼룩 0%’로 추가</p></div></li>
+      <li><div><b>모델 비교·영상 처리</b><p>후보 4개 같은 조건 학습·비교, 영상 프레임별 얼룩 % CSV 저장</p></div></li>
+    </ol>
+  </div>
+</article>
+
+<section id="others">
+  <div class="wrap">
+    <h2>Other Projects</h2>
+    <p class="sub">그 밖의 데이터·AI 경험</p>
+    <div class="others">
+      <div class="card other">
+        <h3>Ulleung Traffic Data</h3>
+        <div class="m">2025.09 – 2026.02 · K-U시티 울릉군 교통 연구</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">YOLO11</span><span class="chip">ByteTrack</span><span class="chip">OpenCV</span></div>
+        <ul>
+          <li>사동항 방향 3개 지점, 입출항 시간대 현장 촬영</li>
+          <li>YOLO11 차량 탐지, ByteTrack 차량별 추적</li>
+          <li>기준선 통과 판정·중복 집계 방지 로직 구현</li>
+          <li>시간대·방향·차선별 통과 대수 CSV 정리</li>
+        </ul>
+      </div>
+      <div class="card other">
+        <h3>Public Data Clustering</h3>
+        <div class="m">2022.09 – 2022.12 · 데이터입문 개인 프로젝트</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">folium</span></div>
+        <ul>
+          <li>전통시장 표준데이터 항목 선택·빈 값 제거</li>
+          <li>시·도 추출 후 folium 지도·카토그램 시각화</li>
+          <li>K-means 라이브러리·직접 구현 결과 대조</li>
+          <li>Elbow·Silhouette로 군집 수 검토·범위 재설정</li>
+        </ul>
+      </div>
+      <div class="card other">
+        <h3>Coursework</h3>
+        <div class="m">2023.03 – 2023.06 · 딥러닝 수업 실습</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">OpenCV</span></div>
+        <ul>
+          <li>MNIST 학습 후 직접 쓴 손글씨 보정·예측</li>
+          <li>CIFAR-100 CNN 구성, 증강·학습/검증 분리</li>
+          <li>ResNet18 기준 전처리로 이미지 추론</li>
+          <li>학습 루프·손실 곡선·정확도 기록</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>이주환 · 한동대학교 AI융합학부</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:ghks0331@naver.com">ghks0331@naver.com</a>
+      <a class="btn" href="https://github.com/ghks331" target="_blank" rel="noopener">github.com/ghks331</a>
+      <a class="btn" href="assets/portfolio.pdf" target="_blank" rel="noopener">PDF 포트폴리오</a>
+    </div>
+    <p class="tiny">© 2026 이주환</p>
+  </div>
+</footer>
+
+</body>
+</html>
