@@ -186,9 +186,8 @@ table.cmp tr.pick td+td{background:none;padding-left:0}
 .steps .ver{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 9px;margin-left:10px;vertical-align:2px}
 .steps p em{font-style:normal;font-weight:600;color:var(--fg);margin-right:8px}
 .brow.wide{grid-template-columns:120px 1fr 64px}
-.f1grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+.f1grid{display:grid;grid-template-columns:1fr;gap:14px}
 .f1 .m{display:block;font-size:13px;font-weight:700;margin:6px 0 -2px}
-@media (max-width:640px){.f1grid{grid-template-columns:1fr}}
 /* ---------- interactive flow ---------- */
 .flow{background:var(--soft);border-radius:4px;padding:22px}
 .flow-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;margin-bottom:16px}
@@ -557,10 +556,9 @@ footer{background:var(--dark);color:#8e8e93;border-top:1px solid #1f1f22}
         </ol>
         <div class="charts single mt">
           <figure class="chart">
-            <figcaption>RAG 적용 전·후 파라미터 F1 · 설정 항목만 채점, 테스트셋 46건, 같은 코드에서 RAG 유무만 바꿔 비교</figcaption>
+            <figcaption>모델별 RAG 적용 전·후 설정 항목 F1 · 테스트셋 46건, 같은 코드에서 RAG 유무만 바꿔 비교 (전체 정답률과는 다른 지표)</figcaption>
             <div class="f1grid">
               <div class="f1"><span class="m">qwen3.5 9B (최종)</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:24"></div></div><span class="val">0.24</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:95"></div></div><span class="val">0.95</span></div></div>
-              <div class="f1"><span class="m">Claude</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:34"></div></div><span class="val">0.34</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:100"></div></div><span class="val">1.00</span></div></div>
               <div class="f1"><span class="m">4B + LoRA</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:27"></div></div><span class="val">0.27</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:46"></div></div><span class="val">0.46</span></div></div>
               <div class="f1"><span class="m">4B + QLoRA</span><div class="brow"><span class="lab">RAG 전</span><div class="track" aria-hidden="true"><div class="bar" style="--v:18"></div></div><span class="val">0.18</span></div><div class="brow"><span class="lab">RAG 후</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:24"></div></div><span class="val">0.24</span></div></div>
             </div>
