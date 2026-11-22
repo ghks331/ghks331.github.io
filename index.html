@@ -394,6 +394,12 @@ section{padding:96px 0}
 table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weight:600;white-space:nowrap}
 .vb{grid-template-columns:1fr!important}
 .vres li em{font-style:normal;font-weight:600;color:#f4f4f5;margin-right:8px}
+.vsteps{margin:16px 0 0;padding:0;list-style:none;counter-reset:v;font-size:14px;color:#d4d4d8}
+.vsteps li{counter-increment:v;display:grid;grid-template-columns:22px 62px 1fr;gap:6px;padding:7px 0;border-bottom:1px solid #2c2c30}
+.vsteps li:last-child{border-bottom:0}
+.vsteps li::before{content:counter(v,decimal-leading-zero);font-size:11px;color:#8e8e93;padding-top:2px}
+.vsteps b{color:#f4f4f5;font-weight:600}
+@media (max-width:520px){.vsteps li{grid-template-columns:22px 1fr}.vsteps li b,.vsteps li span{grid-column:2}.vsteps li{row-gap:2px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -744,13 +750,14 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
         <h3>Ulleung Traffic Data</h3>
         <div class="m">2025.09 – 2026.02 · K-U시티 울릉군 교통 연구</div>
         <div class="chips"><span class="chip">Python</span><span class="chip">YOLO11</span><span class="chip">ByteTrack</span><span class="chip">OpenCV</span><span class="chip">pandas</span></div>
-        <p class="fd">울릉도 사동항 주변 도로의 구간별 교통량을 파악하려고 현장에서 찍은 영상으로 차량 통과 대수를 셌습니다.</p>
-        <ul>
-          <li>사동항 방향 3개 지점, 3일간 입출항 시간대(새벽·오전) 4회 촬영</li>
-          <li>YOLO11 차량 탐지, ByteTrack 차량별 추적</li>
-          <li>차선마다 기준선을 긋고 차량 중심이 선을 넘는 순간만 집계, 같은 차량 중복 집계 방지</li>
-          <li>지점·회차·방향(in/out)별 통과 대수를 CSV로 정리</li>
-        </ul>
+        <p class="fd">사동항 근처의 교통량을 분석해 문제를 진단하고 교통 개선 방향을 찾는 연구입니다. 현장 촬영부터 분석·정리·시각화·해석까지 직접 진행했습니다.</p>
+        <ol class="vsteps">
+          <li><b>직접 촬영</b><span>사동항 방향 3개 지점에서 입출항 시간대(새벽·오전)에 3일간 4회 촬영</span></li>
+          <li><b>분석</b><span>YOLO11로 차량을 찾고 ByteTrack으로 차량별 추적, 차선 기준선을 넘는 순간만 세어 중복 집계 방지</span></li>
+          <li><b>정리</b><span>지점·회차·방향(in/out)별 통과 대수를 CSV로 정리</span></li>
+          <li><b>시각화</b><span>지점·회차별로 방향별 통과 대수를 나란히 비교하는 차트 작성</span></li>
+          <li><b>해석</b><span>지점별·방향별·시간대별 차이를 읽어 교통이 몰리는 구간과 시간대를 진단</span></li>
+        </ol>
         <div class="vres">
           <b>분석·해석</b>
           <ul>
