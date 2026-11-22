@@ -351,14 +351,22 @@ footer{background:var(--dark);color:#8e8e93;border-top:1px solid #1f1f22}
 section{padding:96px 0}
 @media (max-width:700px){section{padding:64px 0}}
 .hero{padding:120px 0 104px}
-#about{padding-bottom:40px}
-.hl{background:#fff;padding-top:40px}
+.hl{background:#fff}
 #projects{background:#fff;padding-top:72px;padding-bottom:40px!important}
 .project{border-top:0;padding:72px 0}
 @media (max-width:700px){.project{padding:48px 0}}
 .part{border-top:0;padding:44px 0}
 #others{border-top:0;padding-top:72px}
 .cta{padding:100px 0}
+.exp{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+.exp h3{font-size:13px;color:var(--muted);font-weight:600;margin:0 0 6px}
+.xpt{width:100%;border-collapse:collapse}
+.xpt th,.xpt td{text-align:left;padding:13px 16px 13px 0;border-bottom:1px solid var(--line);vertical-align:baseline;font-size:15px}
+.xpt tr:last-child th,.xpt tr:last-child td{border-bottom:0}
+.xpt .w{width:150px;color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.xpt th{width:210px;font-weight:600}
+.xpt td:last-child{color:var(--muted);padding-right:0}
+@media (max-width:700px){.xpt,.xpt tbody,.xpt tr,.xpt th,.xpt td{display:block;width:auto}.xpt tr{padding:12px 0;border-bottom:1px solid var(--line)}.xpt tr:last-child{border-bottom:0}.xpt th,.xpt td{border:0;padding:2px 0}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -391,23 +399,7 @@ section{padding:96px 0}
   </div>
 </header>
 
-<section id="about">
-  <div class="wrap two">
-    <div class="left">
-      <p class="eyebrow">About</p>
-      <p class="statement">AI 기능을 만들고, 시험 문제와 채점 기준으로 성능을 측정하고, 결과를 보고 고쳐 왔습니다.</p>
-    </div>
-    <ul class="xp" aria-label="경험">
-      <li><span class="when">2026.08 – 12</span><h3>나무아이씨티 현장실습</h3><p>유전체 분석 LLM 에이전트 · 파라미터 RAG · SLLM 실험</p></li>
-      <li><span class="when">2025.09 – 2026.02</span><h3>K-U시티 연구 참여</h3><p>울릉군 교통 데이터 수집, 차량 통행량 자동 집계</p></li>
-      <li><span class="when">2025 – 2026</span><h3>수업·캠프 TA (총 4회)</h3><p>딥러닝 수업 튜터, Agentic AI·RAG·멀티에이전트 실습 지원</p></li>
-      <li><span class="when">2025.03 – 06</span><h3>한동대 VIC센터</h3><p>코딩 강의 자료 제작 및 검토</p></li>
-      <li><span class="when">2023.12 – 2024.06</span><h3>디지털·코딩 교육</h3><p>초등학생 대상 컴퓨터 기초·엔트리 코딩 지도</p></li>
-    </ul>
-  </div>
-</section>
-
-<section class="hl" aria-labelledby="hl-title">
+<section class="hl" id="about" aria-labelledby="hl-title">
   <div class="wrap">
     <p class="eyebrow">Who I am</p>
     <div class="intro">
@@ -419,6 +411,7 @@ section{padding:96px 0}
       </div>
     </div>
     <div class="edu"><b>한동대학교 AI융합학부 · ICT융합 · 데이터사이언스 전공</b><span>2019.03 – 2027.02 졸업예정 (현재 수료 상태) · GPA 3.8 / 4.5</span></div>
+    <div class="k exp"><h3>Experience</h3><table class="xpt"><tr><td class="w">2026.08 – 12</td><th scope="row">나무아이씨티 현장실습</th><td>유전체 분석 LLM 에이전트 · 파라미터 RAG · SLLM 실험</td></tr><tr><td class="w">2025.09 – 2026.02</td><th scope="row">K-U시티 연구 참여</th><td>울릉군 교통 데이터 수집, 차량 통행량 자동 집계</td></tr><tr><td class="w">2025 – 2026</td><th scope="row">수업·캠프 TA (총 4회)</th><td>딥러닝 수업 튜터, Agentic AI·RAG·멀티에이전트 실습 지원</td></tr><tr><td class="w">2025.03 – 06</td><th scope="row">한동대 VIC센터</th><td>코딩 강의 자료 제작 및 검토</td></tr><tr><td class="w">2023.12 – 2024.06</td><th scope="row">디지털·코딩 교육</th><td>초등학생 대상 컴퓨터 기초·엔트리 코딩 지도</td></tr></table></div>
     <div class="kit">
       <div class="k"><h3>Skills</h3><div class="chips"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">SQL</span><span class="chip">Ollama</span><span class="chip">RAG(pgvector)</span><span class="chip">LoRA/QLoRA(MLX)</span><span class="chip">YOLO11</span><span class="chip">OpenCV</span></div></div>
       <div class="k"><h3>Certificates</h3><div class="chips"><span class="chip">SQLD</span><span class="chip">ADsP</span><span class="chip">DP-900</span><span class="chip">AZ-900</span><span class="chip">컴퓨터활용능력 2급</span></div></div>
