@@ -398,9 +398,9 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
 .vsteps li::before{content:counter(v,decimal-leading-zero);font-size:11px;color:#8e8e93;padding-top:2px}
 .vsteps b{color:#f4f4f5;font-weight:600}
 @media (max-width:520px){.vsteps li{grid-template-columns:22px 1fr}.vsteps li b,.vsteps li span{grid-column:2}.vsteps li{row-gap:2px}}
-.ulimgs{display:grid;gap:14px}
-.ulimgs figure{margin:0}
-.ulimgs figcaption{font-size:12px;color:#8e8e93;margin-top:8px}
+#ulleung{grid-template-columns:1.2fr 1fr}
+#ulleung>.vres{margin-top:0;padding:22px 24px;border:1px solid #2c2c30;border-radius:10px;background:var(--dark3)}
+@media (max-width:960px){#ulleung{grid-template-columns:1fr}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -740,10 +740,6 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
       </div>
     </div>
     <div class="oc feature" id="ulleung">
-      <div class="ulimgs">
-        <figure class="frame"><div class="in"><img src="assets/img/ulleung_spots.jpg" alt="사동항 인근 위성 지도에 촬영 지점 1, 2, 3을 빨간 원으로 표시한 그림. 1번은 버스정류장 인근, 2번은 항만 진입로, 3번은 회전교차로와 터널 인근" loading="lazy" width="819" height="668"></div><figcaption>촬영 지점 1–3 · 배경 지도: 네이버 지도</figcaption></figure>
-        <figure class="frame"><div class="in"><img src="assets/img/ulleung_dashboard.jpg" alt="Streamlit 대시보드의 울릉군 지도 탭. 버스 노선과 정류장이 지도 위에 표시되고 오른쪽에 노선 선택과 버스 정보가 있음" loading="lazy" width="1139" height="614"></div><figcaption>Streamlit 대시보드 · 지도 탭</figcaption></figure>
-      </div>
       <div>
         <h3>Ulleung Traffic Data</h3>
         <div class="m">2025.09 – 2026.02 · K-U시티 「울릉군 교통 빅데이터 수집 및 분석」</div>
@@ -756,7 +752,8 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
           <li><b>데이터 정리</b><span>지점·시간대·방향별 통과 대수를 CSV로 정리</span></li>
           <li><b>대시보드</b><span>Streamlit·Folium으로 공지·지도·그래프 3단 대시보드 제작</span></li>
         </ol>
-        <div class="vres">
+      </div>
+      <div class="vres">
           <b>대시보드 구성</b>
           <ul>
             <li><em>공지</em>울릉 알리미 공지를 해상 공지와 도로 통제 공지로 나눠 표시</li>
@@ -764,7 +761,6 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
             <li><em>그래프</em>교통 단속 건수, 강수량과 입·출도 여객 수, 성수기·비수기 구분</li>
           </ul>
           <p class="note">버스 위치는 실시간 시스템과 연동하기 전 단계라 데모 데이터를 사용했습니다.</p>
-        </div>
       </div>
     </div>
     <div class="others">
