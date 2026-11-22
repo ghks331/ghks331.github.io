@@ -401,6 +401,8 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
 #ulleung{grid-template-columns:1.2fr 1fr}
 #ulleung>.vres{margin-top:0;padding:22px 24px;border:1px solid #2c2c30;border-radius:10px;background:var(--dark3)}
 @media (max-width:960px){#ulleung{grid-template-columns:1fr}}
+.ftitle{flex-basis:100%;margin:0;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lgtag{font-size:11px;font-weight:700;letter-spacing:.02em;background:var(--fg);color:#fff;border-radius:6px;padding:3px 8px}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -491,8 +493,9 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
     <div class="part full">
       <div class="ph"><span class="no">Part 1</span><h3>AI 도우미 구현</h3><p>요청 해석부터 검사·승인·실행까지 9단계 처리 흐름을 연결하고, 틀린 AI 답은 규칙으로 걸러 재시도합니다.</p></div>
       <div>
-        <div class="flow" data-flow="seq" data-start="interpret" role="group" aria-label="SEQUORA 9단계 처리 흐름">
+        <div class="flow" data-flow="seq" data-start="interpret" role="group" aria-label="SEQUORA LangGraph 처리 흐름">
           <div class="flow-top">
+            <p class="ftitle"><span class="lgtag">LangGraph</span>SEQUORA 에이전트 그래프 · 노드와 조건 분기</p>
             <p class="hint">단계를 누르면 하는 일과 분기가 아래에 나옵니다. 좁은 화면에서는 옆으로 밀어 보세요.</p>
             <div class="legend" aria-hidden="true"><span><i class="lg-ai"></i>AI 해석·규칙 검사</span><span><i class="lg-wait"></i>사람 응답 대기</span><span><i class="lg-ev"></i>Part 2 평가 범위</span></div>
           </div>
@@ -663,6 +666,7 @@ table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weigh
           </ol>
           <div class="flow" data-flow="web" data-start="router" role="group" aria-label="웹 접근성 LangGraph 처리 흐름">
             <div class="flow-top">
+              <p class="ftitle"><span class="lgtag">LangGraph</span>접근성 변환 그래프 · 노드와 조건 분기</p>
               <p class="hint">노드를 누르면 설명이 나옵니다.</p>
               <div class="legend" aria-hidden="true"><span><i class="lg-ai"></i>AI 노드</span><span><i></i>Judge</span></div>
             </div>
