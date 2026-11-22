@@ -367,6 +367,31 @@ section{padding:96px 0}
 .xpt th{width:210px;font-weight:600}
 .xpt td:last-child{color:var(--muted);padding-right:0}
 @media (max-width:700px){.xpt,.xpt tbody,.xpt tr,.xpt th,.xpt td{display:block;width:auto}.xpt tr{padding:12px 0;border-bottom:1px solid var(--line)}.xpt tr:last-child{border-bottom:0}.xpt th,.xpt td{border:0;padding:2px 0}}
+.others{grid-template-columns:repeat(2,1fr)}
+@media (max-width:760px){.others{grid-template-columns:1fr}}
+.oc.feature+.oc.feature{margin-top:20px}
+.vchart{background:var(--dark3)!important;color:#f4f4f5;padding:22px}
+.vchart figcaption{color:#f4f4f5}
+.vlegend{display:flex;gap:16px;font-size:12px;color:#b4b4b9;margin:-4px 0 14px}
+.vlegend i{display:inline-block;width:10px;height:10px;border-radius:3px;background:#8e8e93;margin-right:6px;vertical-align:-1px}
+.vlegend i.o{background:var(--accent)}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px}
+@media (max-width:520px){.vgrid{grid-template-columns:1fr}}
+.vh{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin:0 0 8px;color:#f4f4f5}
+.vh span{font-weight:500;color:#9a9aa0}
+.vrow{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:center;margin:6px 0}
+.vrow .sp{font-size:12px;color:#b4b4b9}
+.vb{display:grid;grid-template-columns:1fr 34px;gap:3px 6px;align-items:center}
+.vb .track{height:7px;background:#1b1b1e}
+.vb .bar{background:#8e8e93}
+.vb .bar.after{background:var(--accent)}
+.vb .val{font-size:11px;font-weight:600;text-align:right;color:#e4e4e7;font-variant-numeric:tabular-nums}
+.vsrc{margin:16px 0 0;font-size:12px;color:#9a9aa0}
+.vsrc a{color:#e4e4e7}
+.vres{margin-top:18px;padding-top:16px;border-top:1px solid #2c2c30}
+.vres b{font-size:14px}
+.vres ul{margin-top:8px}
+table.cmp tbody th{border-bottom-color:var(--line);color:var(--muted);font-weight:600;white-space:nowrap}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -623,7 +648,7 @@ section{padding:96px 0}
         <div class="two" style="gap:28px;align-items:start">
           <ol class="steps">
             <li><div><b>한 번에 요청</b><p>코드 전체를 넣고 한 번에 수정 요청 → 복잡한 페이지는 결과 불안정</p></div></li>
-            <li><div><b>원인 측정</b><p>영역별 토큰 측정: 상단 메뉴 16,689 · 본문 13,552 → 입력 과다 확인</p></div></li>
+            <li><div><b>원인 측정</b><p>영역별로 AI 입력 길이를 재 보니 상단 메뉴 하나가 본문보다 길었음 → 한 번에 넣기엔 입력이 너무 많다고 판단</p></div></li>
             <li><div><b>단계별 요청</b><p>설명 추가 → 메뉴 정리로 나눠 순차 요청. 틀린 결과 걸러낼 장치 부재</p></div></li>
             <li><div><b>LangGraph 전환</b><p>유형 판단 → 변환 → Judge 검사로 노드를 나누고 불합격 시 재실행</p></div></li>
           </ol>
@@ -649,6 +674,14 @@ section{padding:96px 0}
             </div>
             <div class="flow-panel" id="web-panel" aria-live="polite"></div>
           </div>
+        </div>
+        <div class="it mt"><b>변환을 두 갈래로 나눈 이유</b><p>목록·메뉴 변환은 어느 사이트의 반복 영역에나 쓰는 일반 규칙입니다. 강의 카드는 썸네일과 제목·상세 정보로 형태가 정해져 있어 이 형태에 맞춘 전용 규칙을 따로 두었습니다.</p>
+          <table class="cmp mt"><thead><tr><th scope="col">구분</th><th scope="col">목록·메뉴 구조 변환</th><th scope="col">강의 상세 변환</th></tr></thead><tbody>
+            <tr><th scope="row">대상</th><td>메뉴·목록·푸터 등 반복 영역</td><td>K-MOOC 강의 카드</td></tr>
+            <tr><th scope="row">묶는 방식</th><td>주제별 버튼으로 묶고 여러 단계면 겹쳐 접음</td><td>카드 전체를 ‘강좌’ 묶음 하나로 접음</td></tr>
+            <tr><th scope="row">펼침 버튼</th><td>내용의 큰 주제를 버튼 글자로 사용</td><td>카드마다 강의 제목을 펼침 제목으로 변환</td></tr>
+            <tr><th scope="row">지우는 것</th><td>없음 (원래 글·링크 유지)</td><td>화면용 썸네일 이미지</td></tr>
+          </tbody></table>
         </div>
       </div>
     </div>
@@ -697,21 +730,40 @@ section{padding:96px 0}
         <p class="note">사진: 영상 프레임별 창문 대비 얼룩 % 결과 · 빨간 점은 검출된 얼룩</p>
       </div>
     </div>
+    <div class="oc feature" id="ulleung">
+      <figure class="chart vchart">
+        <figcaption>사동항 지점·회차별 차량 통과 대수 (2025.11.28 – 11.30)</figcaption>
+        <div class="vlegend" aria-hidden="true"><span><i></i>in</span><span><i class="o"></i>out</span></div>
+        <p class="sr">11/28 오전 지점1 in 212대 out 205대. 11/28 오전 지점2 in 155대 out 156대. 11/28 오전 지점3 in 22대 out 35대. 11/29 새벽 지점1 in 98대 out 44대. 11/29 새벽 지점2 in 214대 out 197대. 11/29 새벽 지점3 in 80대 out 176대. 11/29 오전 지점1 in 183대 out 155대. 11/29 오전 지점2 in 206대 out 185대. 11/29 오전 지점3 in 148대 out 124대. 11/30 새벽 지점1 in 141대 out 232대. 11/30 새벽 지점2 in 73대 out 41대. 11/30 새벽 지점3 in 45대 out 23대.</p>
+        <div class="vgrid" aria-hidden="true"><div class="vg"><p class="vh">11/28 오전<span>합계 785대</span></p><div class="vrow"><span class="sp">지점 1</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:91.4"></div></div><span class="val">212</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:88.4"></div></div><span class="val">205</span></div></div><div class="vrow"><span class="sp">지점 2</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:66.8"></div></div><span class="val">155</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:67.2"></div></div><span class="val">156</span></div></div><div class="vrow"><span class="sp">지점 3</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:9.5"></div></div><span class="val">22</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:15.1"></div></div><span class="val">35</span></div></div></div><div class="vg"><p class="vh">11/29 새벽<span>합계 809대</span></p><div class="vrow"><span class="sp">지점 1</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:42.2"></div></div><span class="val">98</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:19.0"></div></div><span class="val">44</span></div></div><div class="vrow"><span class="sp">지점 2</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:92.2"></div></div><span class="val">214</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:84.9"></div></div><span class="val">197</span></div></div><div class="vrow"><span class="sp">지점 3</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:34.5"></div></div><span class="val">80</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:75.9"></div></div><span class="val">176</span></div></div></div><div class="vg"><p class="vh">11/29 오전<span>합계 1,001대</span></p><div class="vrow"><span class="sp">지점 1</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:78.9"></div></div><span class="val">183</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:66.8"></div></div><span class="val">155</span></div></div><div class="vrow"><span class="sp">지점 2</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:88.8"></div></div><span class="val">206</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:79.7"></div></div><span class="val">185</span></div></div><div class="vrow"><span class="sp">지점 3</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:63.8"></div></div><span class="val">148</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:53.4"></div></div><span class="val">124</span></div></div></div><div class="vg"><p class="vh">11/30 새벽<span>합계 555대</span></p><div class="vrow"><span class="sp">지점 1</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:60.8"></div></div><span class="val">141</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:100.0"></div></div><span class="val">232</span></div></div><div class="vrow"><span class="sp">지점 2</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:31.5"></div></div><span class="val">73</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:17.7"></div></div><span class="val">41</span></div></div><div class="vrow"><span class="sp">지점 3</span><div class="vb"><div class="track" aria-hidden="true"><div class="bar" style="--v:19.4"></div></div><span class="val">45</span><div class="track" aria-hidden="true"><div class="bar after" style="--v:9.9"></div></div><span class="val">23</span></div></div></div></div>
+        <p class="vsrc">in·out은 원본 기록 표기 그대로 · <a href="assets/data/sadong_vehicle_counts.csv" download>데이터 CSV 내려받기</a></p>
+      </figure>
+      <div>
+        <h3>Ulleung Traffic Data</h3>
+        <div class="m">2025.09 – 2026.02 · K-U시티 울릉군 교통 연구</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">YOLO11</span><span class="chip">ByteTrack</span><span class="chip">OpenCV</span><span class="chip">pandas</span></div>
+        <p class="fd">울릉도 사동항 주변 도로의 구간별 교통량을 파악하려고 현장에서 찍은 영상으로 차량 통과 대수를 셌습니다.</p>
+        <ul>
+          <li>사동항 방향 3개 지점, 3일간 입출항 시간대(새벽·오전) 4회 촬영</li>
+          <li>YOLO11 차량 탐지, ByteTrack 차량별 추적</li>
+          <li>차선마다 기준선을 긋고 차량 중심이 선을 넘는 순간만 집계, 같은 차량 중복 집계 방지</li>
+          <li>지점·회차·방향(in/out)별 통과 대수 24건을 CSV로 정리</li>
+        </ul>
+        <div class="vres">
+          <b>결과</b>
+          <ul>
+            <li>4회 촬영분 합계 3,150대 (in 1,577 · out 1,573)</li>
+            <li>회차 합계는 11/29 오전이 1,001대로 가장 많고 11/30 새벽이 555대로 가장 적음</li>
+            <li>지점 3은 합계 653대로 지점 1(1,270대)·지점 2(1,227대)의 절반 수준</li>
+            <li>한 번에 가장 많이 센 값은 11/30 새벽 지점 1 out 232대</li>
+          </ul>
+          <p class="note">회차별 촬영 길이는 기록이 없어 시간당 교통량으로는 비교하지 않았습니다.</p>
+        </div>
+      </div>
+    </div>
     <div class="others">
       <div class="oc">
         <div class="badge" aria-hidden="true">A</div>
-        <h3>Ulleung Traffic Data</h3>
-        <div class="m">2025.09 – 2026.02 · K-U시티 울릉군 교통 연구</div>
-        <div class="chips"><span class="chip">Python</span><span class="chip">YOLO11</span><span class="chip">ByteTrack</span><span class="chip">OpenCV</span></div>
-        <ul>
-          <li>사동항 방향 3개 지점, 입출항 시간대 현장 촬영</li>
-          <li>YOLO11 차량 탐지, ByteTrack 차량별 추적</li>
-          <li>기준선 통과 판정·중복 집계 방지 로직 구현</li>
-          <li>시간대·방향·차선별 통과 대수 CSV 정리</li>
-        </ul>
-      </div>
-      <div class="oc">
-        <div class="badge" aria-hidden="true">B</div>
         <h3>Public Data Clustering</h3>
         <div class="m">2022.09 – 2022.12 · 데이터입문 개인 프로젝트</div>
         <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span><span class="chip">folium</span></div>
@@ -723,7 +775,7 @@ section{padding:96px 0}
         </ul>
       </div>
       <div class="oc">
-        <div class="badge" aria-hidden="true">C</div>
+        <div class="badge" aria-hidden="true">B</div>
         <h3>Coursework</h3>
         <div class="m">2023.03 – 2023.06 · 딥러닝 수업 실습</div>
         <div class="chips"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">OpenCV</span></div>
@@ -778,8 +830,8 @@ section{padding:96px 0}
     },
     web: {
       router:{t:'변환 유형 판단 (AI)', d:'토큰 1,000 미만이면 변환을 생략합니다. 그 외에는 AI가 구조 유형(목록·메뉴·푸터 / 강의 상세)을 고릅니다.', b:['structure → 목록·메뉴 구조 변환','lec → 강의 상세 변환','none (토큰 1,000 미만 등) → 종료']},
-      list:{t:'목록·메뉴 구조 변환 (AI)', d:'목록과 메뉴를 키보드로 탐색 가능한 접힘 구조로 바꿉니다.', b:['→ Judge 검사']},
-      lec:{t:'강의 상세 변환 (AI)', d:'강의 카드를 계층형 접힘 구조로 바꿉니다.', b:['→ Judge 검사']},
+      list:{t:'목록·메뉴 구조 변환 (AI)', d:'메뉴·목록처럼 같은 형태가 반복되는 영역에 쓰는 일반 규칙입니다. 항목을 주제별 버튼으로 묶어 처음에는 접어 두고, 버튼을 누르거나 Enter·Space를 치면 펼쳐집니다. 묶음이 여러 단계면 단계대로 겹쳐 접고, 원래 글과 링크는 그대로 둡니다.', b:['→ Judge 검사']},
+      lec:{t:'강의 상세 변환 (AI)', d:'썸네일과 제목·상세 정보로 형태가 정해진 K-MOOC 강의 카드 전용 규칙입니다. 카드 전체를 ‘강좌’ 묶음 하나로 접고, 카드마다 강의 제목을 펼침 버튼 겸 제목으로 바꿔 나머지 정보를 그 아래에 접어 둡니다. 화면용 썸네일 이미지는 지웁니다.', b:['→ Judge 검사']},
       aria:{t:'접근성 마무리 (AI)', d:'한국어 ARIA 라벨과 페이지 요약을 넣고, 장식 요소를 숨김 처리합니다.', b:['→ Judge 검사']},
       judge1:{t:'Judge 검사 (judge_1)', d:'AI 검사관이 변환 결과가 요구사항을 충족하는지 yes/no로 판정합니다. 재귀 한도 5로 무한 반복을 막습니다.', b:['yes → 접근성 마무리','no → 목록·메뉴 구조 변환 다시 실행']},
       judge2:{t:'Judge 검사 (lec_judge)', d:'AI 검사관이 변환 결과가 요구사항을 충족하는지 yes/no로 판정합니다. 재귀 한도 5로 무한 반복을 막습니다.', b:['yes → 접근성 마무리','no → 강의 상세 변환 다시 실행']},
