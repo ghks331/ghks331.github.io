@@ -8,7 +8,7 @@ export const projectCards: ProjectCard[] = [
     period: '2026.08 – 12',
     thumb: 'assets/img/sequora_flow.png',
     title: 'SEQUORA',
-    summary: '현장실습 · LLM 에이전트 · 평가셋 기반 개선 · 파라미터 RAG',
+    summary: '현장실습 · AI 에이전트 서비스 · 평가셋 기반 개선 · 하이브리드 RAG · Human-in-the-loop',
   },
   {
     id: 'webaccess',
@@ -39,20 +39,20 @@ export const sequora = {
     title: 'SEQUORA',
     meta: [
       { label: '구분', value: '나무아이씨티 현장실습' },
-      { label: '역할', value: 'LLM 에이전트 구현 · 평가 · RAG' },
-      { label: '언어 · 기술', value: 'Python · LangGraph' },
+      { label: '역할', value: 'LLM 구간 구현 · 평가 · RAG' },
+      { label: '언어 · 기술', value: 'Python · LangGraph · Structured Output' },
       { label: '모델 · 도구', value: 'Ollama · qwen3.5 9B · pgvector' },
     ],
     lead: {
-      statement: '연구자가 말로 요청하면 AI가 분석 조건을 정리하고, 규칙으로 검사하고, 사람이 확인하면 분석을 실행하는 도우미입니다.',
-      text: '연구자는 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청합니다. 이 중 AI가 들어가는 부분의 구현·성능 측정·개선을 맡았습니다.',
+      statement: '연구자의 자연어 분석 요청을 규칙 검사와 사람 승인을 거쳐 실행하는 사내 AI 에이전트 서비스입니다.',
+      text: '연구자가 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청하면 LLM이 조건을 정리하고, Human-in-the-loop 승인 후 분석 서버에서 실행합니다. 전체 시스템은 TypeScript 웹 화면 · FastAPI 백엔드 API · Docker 분석 실행 환경 · LangGraph 에이전트 · Ollama 로컬 LLM으로 구성됩니다. 이 중 LLM 구간(요청 해석 · RAG · 평가 체계)의 구현·성능 측정·개선을 맡았고, 웹·백엔드·분석 서버 연동은 팀원이 담당했습니다.',
     },
   } satisfies ProjectHead,
 
   part1: {
     head: {
       no: 'Part 1',
-      title: 'AI 도우미 구현',
+      title: 'AI 에이전트 구현',
       desc: '요청 해석부터 검사·승인·실행까지 9단계 처리 흐름을 연결하고, 틀린 AI 답은 규칙으로 걸러 재시도합니다.',
     } satisfies PartHead,
     flow: {
@@ -61,7 +61,7 @@ export const sequora = {
     },
     items: [
       { title: '9단계 처리 흐름', desc: '진행·되묻기·재생성 분기, 승인 후 설정 변경 시 승인 무효' },
-      { title: 'PC용 AI 모델 연결', desc: 'Ollama 모델 연결, 정해진 양식으로만 답하도록 제한' },
+      { title: '로컬 LLM 연결 (온프레미스)', desc: 'Ollama 로컬 LLM으로 온프레미스 환경 적용 가능성 탐색, Structured Output으로 양식 고정' },
       { title: '틀린 답 재시도', desc: '양식 오류 시 재생성, 같은 오류 3회면 사람 검토로 전달' },
     ] satisfies Item[],
   },
@@ -124,7 +124,7 @@ export const sequora = {
   part3: {
     head: {
       no: 'Part 3',
-      title: '파라미터 RAG',
+      title: '파라미터 RAG · 하이브리드 검색 · Tool Calling',
       desc: '요청 속 설정을 파이프라인 스키마 문서에서 찾아 맞추는 기능입니다. 일반 RAG에서 시작해 검색·구조·도구 순서로 개선했습니다.',
     } satisfies PartHead,
     steps: [
@@ -160,7 +160,7 @@ export const sequora = {
       ],
     } satisfies Chart,
     extra: {
-      title: '함께 한 실험 · SLLM 파인튜닝·양자화',
+      title: '함께 한 실험 · 온프레미스용 SLLM 파인튜닝·양자화',
       desc: '4B + LoRA는 RAG 없이 39%로 9B(41%)와 비슷했지만, RAG를 붙여도 46%에 그쳐(9B는 87%) 9B로 전환했습니다. 테스트셋 46건 기준입니다.',
     } satisfies Item,
   },

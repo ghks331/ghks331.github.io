@@ -31,7 +31,7 @@ export const profile = {
 };
 
 export const experiences: Experience[] = [
-  { when: '2026.08 – 12', title: '나무아이씨티 현장실습', desc: '유전체 분석 LLM 에이전트 · 파라미터 RAG · SLLM 실험' },
+  { when: '2026.08 – 12', title: '나무아이씨티 현장실습', desc: '유전체 분석 AI 에이전트 서비스 · 하이브리드 RAG · 온프레미스 SLLM 실험' },
   { when: '2025.09 – 2026.02', title: 'K-U시티 연구 참여', desc: '울릉군 교통 데이터 수집, 차량 통행량 자동 집계' },
   { when: '2025 – 2026', title: '수업·캠프 TA (총 4회)', desc: '딥러닝 수업 튜터, Agentic AI·RAG·멀티에이전트 실습 지원' },
   { when: '2025.03 – 06', title: '한동대 VIC센터', desc: '코딩 강의 자료 제작 및 검토' },
@@ -39,7 +39,7 @@ export const experiences: Experience[] = [
 ];
 
 export const skills: string[] = [
-  'Python', 'PyTorch', 'LangGraph', 'LangChain', 'SQL', 'Ollama', 'RAG(pgvector)', 'LoRA/QLoRA(MLX)', 'YOLO11', 'OpenCV',
+  'Python', 'TypeScript(React)', 'FastAPI', 'PyTorch', 'LangGraph', 'LangChain', 'SQL', 'Ollama', 'RAG(pgvector)', 'LoRA/QLoRA(MLX)', 'YOLO11', 'OpenCV',
 ];
 
 export const certificates: string[] = ['SQLD', 'ADsP', 'DP-900', 'AZ-900', '컴퓨터활용능력 2급'];
