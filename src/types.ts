@@ -98,4 +98,6 @@ export interface OtherProject {
   meta: string;
   chips: string[];
   points: string[];
+  /** 두 칸을 모두 차지하는 넓은 카드 */
+  wide?: boolean;
 }

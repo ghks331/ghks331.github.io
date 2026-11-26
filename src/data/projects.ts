@@ -45,7 +45,7 @@ export const sequora = {
     ],
     lead: {
       statement: '연구자의 자연어 분석 요청을 규칙 검사와 사람 승인을 거쳐 실행하는 사내 AI 에이전트 서비스입니다.',
-      text: '연구자가 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청하면 LLM이 조건을 정리하고, Human-in-the-loop 승인 후 분석 서버에서 실행합니다. 전체 시스템은 TypeScript 웹 화면 · FastAPI 백엔드 API · Docker 분석 실행 환경 · LangGraph 에이전트 · Ollama 로컬 LLM으로 구성됩니다. 이 중 LLM 구간(요청 해석 · RAG · 평가 체계)의 구현·성능 측정·개선을 맡았고, 웹·백엔드·분석 서버 연동은 팀원이 담당했습니다.',
+      text: '연구자가 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청하면 LLM이 조건을 정리하고, Human-in-the-loop 승인 후 분석 서버에서 실행합니다. 전체 시스템은 TypeScript 웹 화면 · FastAPI 백엔드 API · Docker 분석 실행 환경 · LangGraph 에이전트 · Ollama 로컬 LLM으로 구성됩니다. 이 중 LLM 구간(요청 해석 · RAG · 평가 체계)의 구현·성능 측정·개선을 맡았습니다.',
     },
   } satisfies ProjectHead,
 

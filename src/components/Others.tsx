@@ -66,7 +66,7 @@ export function Others() {
         <UlleungCard />
         <div className="others">
           {smallProjects.map((p) => (
-            <div className="oc" key={p.title}>
+            <div className={p.wide ? 'oc wide' : 'oc'} key={p.title}>
               <div className="badge" aria-hidden="true">{p.badge}</div>
               <h3>{p.title}</h3>
               <div className="m">{p.meta}</div>

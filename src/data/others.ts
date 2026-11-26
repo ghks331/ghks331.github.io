@@ -56,6 +56,19 @@ export const ulleung = {
 export const smallProjects: OtherProject[] = [
   {
     badge: 'A',
+    title: 'Job Copilot',
+    meta: '2026.11 – 진행 중 · 사이드 프로젝트 · 취준 자료 기반 RAG 서비스',
+    chips: ['FastAPI', 'TypeScript', 'React', 'Vite', 'Ollama', 'pytest'],
+    points: [
+      'FastAPI 백엔드를 API·서비스·LLM 계층으로 나누고 의존성 주입으로 LLM 연결',
+      'Ollama 연동 채팅 REST API와 React·TypeScript 채팅 화면 구현',
+      '테스트에서는 실제 LLM 대신 가짜 LLM을 주입해 pytest로 API 동작 확인',
+      'PostgreSQL·pgvector RAG → Docker Compose·CI/CD 배포 → 평가셋 기반 튜닝 순서로 확장 중',
+    ],
+    wide: true,
+  },
+  {
+    badge: 'B',
     title: 'Public Data Clustering',
     meta: '2022.09 – 2022.12 · 데이터입문 개인 프로젝트',
     chips: ['Python', 'pandas', 'scikit-learn', 'folium'],
@@ -67,7 +80,7 @@ export const smallProjects: OtherProject[] = [
     ],
   },
   {
-    badge: 'B',
+    badge: 'C',
     title: 'Coursework',
     meta: '2023.03 – 2023.06 · 딥러닝 수업 실습',
     chips: ['Python', 'PyTorch', 'OpenCV'],
