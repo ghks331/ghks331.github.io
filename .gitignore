@@ -1,2 +1,4 @@
 .DS_Store
 원본/
+node_modules/
+dist/
