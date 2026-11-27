@@ -38,14 +38,14 @@ export const sequora = {
     eyebrow: 'Project 01 · 2026.08 – 2026.12 (진행 중)',
     title: 'SEQUORA',
     meta: [
-      { label: '구분', value: '나무아이씨티 현장실습' },
-      { label: '역할', value: 'LLM 구간 구현 · 평가 · RAG' },
+      { label: '구분', value: '나무아이씨티 현장실습 · 2인 프로젝트' },
+      { label: '역할', value: 'LLM 구간 설계·구현 · RAG · 평가 체계' },
       { label: '언어 · 기술', value: 'Python · LangGraph · Structured Output' },
       { label: '모델 · 도구', value: 'Ollama · qwen3.5 9B · pgvector' },
     ],
     lead: {
       statement: '연구자의 자연어 분석 요청을 규칙 검사와 사람 승인을 거쳐 실행하는 사내 AI 에이전트 서비스입니다.',
-      text: '연구자가 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청하면 LLM이 조건을 정리하고, Human-in-the-loop 승인 후 분석 서버에서 실행합니다. 전체 시스템은 TypeScript 웹 화면 · FastAPI 백엔드 API · Docker 분석 실행 환경 · LangGraph 에이전트 · Ollama 로컬 LLM으로 구성됩니다. 이 중 LLM 구간(요청 해석 · RAG · 평가 체계)의 구현·성능 측정·개선을 맡았습니다.',
+      text: '연구자가 ‘이 데이터로 유전자 발현 분석해 줘’처럼 요청하면 LLM이 조건을 정리하고, Human-in-the-loop 승인 후 분석 서버에서 실행합니다. 2인이 진행했고, 저는 LLM 구간(요청 해석 · RAG · 평가 체계)을 설계·구현했습니다.',
     },
   } satisfies ProjectHead,
 
@@ -69,16 +69,15 @@ export const sequora = {
   part2: {
     head: {
       no: 'Part 2',
-      title: '평가셋 기반 프롬프트 개선',
-      desc: '지시문 24개 버전을 거치며 규칙을 더하는 방식에서 LLM과 코드가 역할을 나누는 구조로 바꿨습니다.',
+      title: '규칙 덧붙이기 → LLM·코드 역할 분리',
+      desc: '지시문에 규칙을 더하는 방식이 막히자, 정답이 정해진 판단은 코드가 맡고 LLM은 후보 안에서만 고르는 구조로 바꿨습니다.',
     } satisfies PartHead,
     steps: [
       {
         title: '평가셋부터 만들기',
         ver: '평가 기준',
         lines: [
-          { label: '한 일', text: '기본 36 · 처음 보는 표현 144 · 데이터 이름·별칭 16 · 설정 16문항으로 묶음을 나누고 자동 채점기 구축' },
-          { label: '원칙', text: '한 번에 하나만 바꾸고, 원래 답과 보정 답을 따로 기록. 점수가 떨어진 버전은 되돌림' },
+          { label: '한 일', text: '구조를 바꿀 때마다 같은 기준으로 비교하도록 평가셋 248문항과 자동 채점기를 먼저 구축' },
         ],
       },
       {
@@ -101,6 +100,7 @@ export const sequora = {
         title: 'LLM과 코드 역할 나누기',
         ver: 'v18–v24',
         lines: [
+          { label: '왜', text: '오답을 보니 데이터 번호 확정처럼 정답이 정해진 판단까지 LLM에게 맡긴 것이 원인' },
           { label: '바꾼 구조', text: 'LLM은 데이터 ‘언급’만 추출 → 코드가 후보 조회 → LLM은 후보 안에서 선택. 표기 정리는 코드가 맡고 지시문은 짧게 재작성' },
         ],
       },
@@ -129,9 +129,9 @@ export const sequora = {
     } satisfies PartHead,
     steps: [
       { title: '일반 RAG', ver: '출발', lines: [{ text: '요청 전체를 벡터 하나로 검색 → 한국어 요청이나 설정이 여럿인 요청에서 일부 설정을 놓침' }] },
-      { title: '혼합 검색', ver: '검색 보강', lines: [{ text: '문장 조각화 · 다국어 임베딩(bge-m3) · 키워드 검색 + RRF 결합, 절마다 상위 2개 보장' }] },
-      { title: '보충형 → 판정형', ver: '구조 변경', lines: [{ text: 'LLM 결과를 ‘제안’으로 두고 코드가 스키마 기준으로 판정, 애매하면 선택지로 질문' }] },
-      { title: '검색을 Tool로', ver: '확장', lines: [{ text: 'search_pipeline_params 도구로 만들어 필요할 때만 호출 → 설정 언급 없는 요청은 지연 약 절반' }] },
+      { title: '혼합 검색', ver: '검색 보강', lines: [{ text: '왜: 한 벡터로는 여러 설정을 다 못 찾음 → 문장 조각화 · 다국어 임베딩(bge-m3) · 키워드 검색 + RRF 결합, 절마다 상위 2개 보장' }] },
+      { title: '보충형 → 판정형', ver: '구조 변경', lines: [{ text: '왜: 검색 결과를 LLM이 그대로 쓰면 없는 설정도 만들어 냄 → LLM 결과를 ‘제안’으로 두고 코드가 스키마 기준으로 판정, 애매하면 선택지로 질문' }] },
+      { title: '검색을 Tool로', ver: '확장', lines: [{ text: '왜: 설정 언급이 없는 요청까지 매번 검색함 → search_pipeline_params 도구로 만들어 필요할 때만 호출, 해당 요청은 지연 약 절반' }] },
     ] satisfies Step[],
     chart: {
       caption: '모델별 RAG 적용 전·후 전체 정답률 · 테스트셋 46건, RAG 상시 적용 기준',
