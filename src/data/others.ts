@@ -57,7 +57,7 @@ export const smallProjects: OtherProject[] = [
   {
     badge: 'A',
     title: 'Job Copilot',
-    meta: '2026.11 – 진행 중 · 사이드 프로젝트 · 취준 자료 기반 RAG 서비스',
+    meta: '2026.11 – 진행 중 · 사이드 프로젝트 · 취업 준비 자료 기반 RAG 서비스',
     chips: ['FastAPI', 'TypeScript', 'React', 'Vite', 'Ollama', 'pytest'],
     points: [
       'FastAPI 백엔드를 API·서비스·LLM 계층으로 나누고 의존성 주입으로 LLM 연결',
